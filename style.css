@@ -16,11 +16,13 @@ body {
 }
 
 .header {
-    height: 20em;;
-}
+    padding: 1em;
+    font-size: 6em;
+    font-weight: 900;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(255, 222, 222);
+    color: rgba(255, 140, 94, 0.7);
 
-.header img {
-    object-fit: cover;
 }
 
 .content {
@@ -53,6 +55,7 @@ body {
 
 .text {
     position: absolute;
+    text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
