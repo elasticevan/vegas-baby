@@ -5,12 +5,12 @@ let stores = [
     {name: "mango mango", image: "./images/mangomango.jpg", menu: "https://www.mangomangodessert.com/menu"},
     {name: "zippy's", image: "http://tinyurl.com/23de4unp", menu: "https://www.zippys.com/lasvegas/"},
     {name: "ton shou", image: "http://tinyurl.com/22zob9hv", menu: "https://www.yelp.com/biz/ton-shou-las-vegas"},
-    {name: "mango mango", image: "./images/mangomango.jpg", menu: "https://www.mangomangodessert.com/menu"}
+    {name: "purple potato", image: "http://tinyurl.com/242lhv4y", menu: "http://tinyurl.com/279zvzaj"}
 
 ]
 //objects use for...in vs arrays who use for...of
 
-let tile;
+
 for (let store of stores) {
     //create tiles
     let tile = document.createElement('div');

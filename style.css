@@ -16,8 +16,8 @@ body {
 }
 
 .header {
-    padding: 1em;
-    font-size: 6em;
+    padding: 5px;
+    font-size: 2em;
     font-weight: 900;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: rgb(255, 222, 222);
@@ -28,16 +28,23 @@ body {
 .content {
     flex: 1;
     flex-direction: column;
+    background-color: rgb(255, 205, 186);
+    width: 100%;
+}
+
+.map {
+    flex-wrap: wrap;
+    flex: 1;
 }
 
 .food {
-    background-color: rgb(255, 205, 186);
     display: flex;
     justify-content: space-between;
     padding: 5em;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+    flex: 2;
 }
 
 .tile {
@@ -49,10 +56,6 @@ body {
     overflow: hidden;
 }
 
-.tile img {
-    object-fit: cover;
-}
-
 .text {
     position: absolute;
     text-align: center;
@@ -62,6 +65,7 @@ body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 900;
     font-size: 3em;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 222, 222);
+    text-shadow: 2px 2px 4px rgb(0, 0, 0, 1ssss)
 
 }
