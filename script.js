@@ -1,5 +1,6 @@
 // JS for Vegas
 const food = document.querySelector('.food');
+const dialog = document.querySelector('dialog');
 
 let stores = [
     {name: "mango mango", image: "./images/mangomango.jpg", menu: "https://www.mangomangodessert.com/menu"},
@@ -10,12 +11,12 @@ let stores = [
 ]
 //objects use for...in vs arrays who use for...of
 
-
+let tile;
 for (let store of stores) {
     //create tiles
-    let tile = document.createElement('div');
+    tile = document.createElement('div');
     tile.classList = "tile";
-
+    
     //create anchor for menu link
     let menu = document.createElement('a');
     menu.href = store.menu
@@ -37,3 +38,12 @@ for (let store of stores) {
     food.appendChild(tile);
 }
 
+let tiles = document.querySelectorAll('.tile')
+
+food.addEventListener('click', () => {
+    dialog.showModal()
+})
+
+dialog.addEventListener('click', () => {
+    dialog.close();
+})
