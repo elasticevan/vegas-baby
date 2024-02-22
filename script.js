@@ -44,6 +44,17 @@ food.addEventListener('click', () => {
     dialog.showModal()
 })
 
-dialog.addEventListener('click', () => {
+const close = document.querySelector('.close')
+
+close.addEventListener('click', () => {
     dialog.close();
 })
+const heart = document.querySelector(".heart");
+heart.addEventListener('dblclick', () => {
+    if(heart.classList.contains('clicked')) {
+        heart.classList.remove('.clicked')
+    } else {
+        heart.classList.toggle('clicked');
+        heart.innerHTML ='<img src ="./images/heart_filled.png">'
+    }
+});

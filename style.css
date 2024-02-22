@@ -54,7 +54,7 @@ body {
     width: 15em;
     border-radius: 20%;
     overflow: hidden;
-    box-shadow: 1px 1px 2px rgb(0, 0, 0, 1);
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
 }
 
 .text {
@@ -68,5 +68,43 @@ body {
     font-size: 3em;
     color: rgb(255, 222, 222);
     text-shadow: 2px 2px 4px rgb(0, 0, 0, 1);
+}
 
+dialog {
+    background-color: rgb(255, 222, 222);
+    border: 0px solid rgb(255, 222, 222);
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.7);
+    width: fit-content;
+    border-radius: 2%;
+}
+
+.bottom {
+    display: flex;
+    height: 2em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.heart img,
+.heart .clicked img,
+.close img {
+    flex: 0;
+    top: 7px;
+    position: relative;
+    width: 3em;
+}
+
+.link {
+    background-color:rgb(255, 255, 255);
+    margin-top: 10px;
+    width: 200px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close img,
+.link {
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.7);
 }
