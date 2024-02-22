@@ -52,7 +52,7 @@ body {
     border: 10px solid rgb(255, 222, 222);
     height: 20em;
     width: 15em;
-    border-radius: 20%;
+    border-radius: 3em;
     overflow: hidden;
     box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
 }
@@ -71,11 +71,12 @@ body {
 }
 
 dialog {
-    background-color: rgb(255, 222, 222);
+    background-color: rgb(255, 170, 170);
     border: 0px solid rgb(255, 222, 222);
     box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.7);
     width: fit-content;
-    border-radius: 2%;
+    height: 29.5em;
+    border-radius: 1.5em;
 }
 
 .bottom {
@@ -87,24 +88,19 @@ dialog {
 
 .heart img,
 .heart .clicked img,
-.close img {
-    flex: 0;
-    top: 7px;
-    position: relative;
-    width: 3em;
-}
-
-.link {
-    background-color:rgb(255, 255, 255);
-    margin-top: 10px;
-    width: 200px;
-    height: 42px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .close img,
-.link {
-    box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.7);
+.insta img{
+    flex: 0;
+    width: 3em;
+    margin-top: 25px;
+    cursor: pointer;
+}
+.heart img,
+.heart .clicked img {
+    margin-top: 21px;
+    width: 4.3em;
+}
+
+iframe {
+    border-radius: 1em;
 }
