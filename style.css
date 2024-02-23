@@ -94,6 +94,7 @@ dialog {
     width: 3em;
     margin-top: 25px;
     cursor: pointer;
+    position: relative;
 }
 .heart img,
 .heart .clicked img {
@@ -102,5 +103,7 @@ dialog {
 }
 
 iframe {
+    width: 420px;
+    height: 420px;
     border-radius: 1em;
 }
