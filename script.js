@@ -7,70 +7,85 @@ let stores = [
     {name: "ton shou", image: "http://tinyurl.com/22zob9hv", insta: "https://www.instagram.com/tonshoulv/"},
     {name: "purple potato", image: "http://tinyurl.com/242lhv4y", insta: "https://www.instagram.com/purplepotatolv/"}
 ]
-//objects use for...in vs arrays who use for...of
 
-let tile;
-let dialog;
-let maps;
-let socials;
-let heart;
-let insta;
-let close;
+// Create modal outside of loop
+let dialog = document.createElement('dialog');
+let maps = document.createElement('iframe');
+let socials = document.createElement('div');
+let heart = document.createElement('div');
+let insta = document.createElement('div');
+let close = document.createElement('div');
+
+maps.classList.add('map');
+socials.classList.add('bottom');
+heart.classList.add('heart');
+insta.classList.add('insta');
+close.classList.add('close');
+heart.innerHTML = '<img src="./images/heart_empty.png">';
+insta.innerHTML = '<img src="./images/insta.png">';
+close.innerHTML = '<img src="./images/close_icon.png">';
+
+socials.appendChild(heart);
+socials.appendChild(insta);
+socials.appendChild(close);
+
+dialog.appendChild(maps);
+dialog.appendChild(socials);
+
+food.appendChild(dialog);
+
+// Event listener for closing dialog
+close.addEventListener('click', () => {
+    dialog.close();
+});
+let like;
+//objects use for...in vs arrays who use for...of
 for (let store of stores) {
-    //create tiles
-    tile = document.createElement('div');
-    tile.classList = "tile";
-    
-    // create image element and set its src attribute
+    // Create tile
+    let tile = document.createElement('div');
+    tile.classList.add('tile');
+
+    // Create image element
     let img = document.createElement('img');
     img.src = store.image;
-    tile.appendChild(img); // Append the image to the anchor
+    tile.appendChild(img);
 
-    // create text span and set its text content
-    let span = document.createElement('span');
-    span.classList = "text"
-    span.textContent = store.name ;
-    tile.appendChild(span);
+    // Create text span
+    let text = document.createElement('span');
+    text.classList.add('text');
+    text.textContent = store.name;
+    tile.appendChild(text);
 
-    //append tile to food container
+    // Create like icon
+    like = document.createElement('span');
+    like.classList.add('heart');
+    tile.appendChild(like);
+
+    // Append tile to food container
     food.appendChild(tile);
+
     
-    //add event listener to tiles to create modal
+    // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
-        //create modal (popup)
-        dialog = document.createElement('dialog');
-        let maps = document.createElement('iframe');
-        let socials = document.createElement('div');
-        let heart = document.createElement('div');
-        let insta = document.createElement('div');
-        let close = document.createElement('div');
         maps.src = store.location;
-        socials.classList = "bottom";
-        heart.classList = "heart";
-        insta.classList = "insta";
-        close.classList = "close";
-        heart.innerHTML = '<img src="./images/heart_empty.png">';
-        insta.innerHTML = '<img src="./images/insta.png">';
-        close.innerHTML = '<img src="./images/close_icon.png">';
-        socials.appendChild(heart)
-        socials.appendChild(insta)
-        socials.appendChild(close)
-        dialog.appendChild(maps)
-        dialog.appendChild(socials);
         food.appendChild(dialog);
         dialog.showModal();
-        heart.addEventListener('click', () => {
-            heart.innerHTML = (heart.classList.toggle('clicked')) ? '<img src ="./images/heart_filled.png">' : '<img src ="./images/heart_empty.png">';
-        });
         insta.addEventListener('click', () => {
             window.open(store.insta, '_blank')
         });
-        close.addEventListener('click', () => {
-            dialog.close();
-        })
-    })
+    });
+    
 }
 
+// Event listener for toggling like feature
+heart.addEventListener('click', () => {
+    if(heart.classList.toggle('clicked')) {
+        heart.innerHTML ='<img src ="./images/heart_filled.png">';
+        like.innerHTML ='<img src ="./images/heart_filled.png">'
+    } else {
+        heart.innerHTML ='<img src ="./images/heart_empty.png">'
+        like.innerHTML = '';
+}})
 
 function saveData(){
     localStorage.setItem("liked", heart.innerHTML);

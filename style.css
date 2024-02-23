@@ -55,6 +55,11 @@ body {
     border-radius: 3em;
     overflow: hidden;
     box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .text {
@@ -98,12 +103,27 @@ dialog {
 }
 .heart img,
 .heart .clicked img {
-    margin-top: 21px;
+    bottom: 3px;
+    right: 13px;
     width: 4.3em;
+}
+
+.insta img{
+    right: 7px;
 }
 
 iframe {
     width: 420px;
     height: 420px;
     border-radius: 1em;
+}
+
+.tile .heart {
+    position: absolute;
+    bottom: 15.5em;
+    left: 11em;
+}
+
+.tile .heart img {
+    width: 5em;
 }
