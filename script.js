@@ -70,7 +70,7 @@ for (let store of stores) {
         } else {
             heart.innerHTML ='<img src ="./images/heart_empty.png">'
             like.innerHTML = '';
-        } saveData();
+        }
     }
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
@@ -86,9 +86,10 @@ for (let store of stores) {
             insta.removeEventListener('click', instagram);
             heart.removeEventListener('click', likeHeart);
             dialog.close();
+            saveData();
         });
     });
-    
+
     function saveData(){
         localStorage.setItem("popUpHeart", heart.innerHTML)
         localStorage.setItem("tileHeart", like.innerHTML);
