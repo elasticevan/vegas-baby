@@ -34,11 +34,6 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
-// Event listener for closing dialog
-close.addEventListener('click', () => {
-    dialog.close();
-});
-let like;
 //objects use for...in vs arrays who use for...of
 for (let store of stores) {
     // Create tile
@@ -57,36 +52,47 @@ for (let store of stores) {
     tile.appendChild(text);
 
     // Create like icon
-    like = document.createElement('span');
+    let like = document.createElement('span');
     like.classList.add('heart');
     tile.appendChild(like);
 
     // Append tile to food container
     food.appendChild(tile);
 
-    
+    function instagram(){
+        window.open(store.insta, '_blank')
+    }
+
+    function likeHeart(){
+        if(heart.classList.toggle('clicked')) {
+            heart.innerHTML ='<img src ="./images/heart_filled.png">';
+            like.innerHTML ='<img src ="./images/heart_filled.png">'
+        } else {
+            heart.innerHTML ='<img src ="./images/heart_empty.png">'
+            like.innerHTML = '';
+        } saveData();
+    }
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
         maps.src = store.location;
-        food.appendChild(dialog);
         dialog.showModal();
-        insta.addEventListener('click', () => {
-            window.open(store.insta, '_blank')
+        insta.addEventListener('click', instagram);
+
+        // Event listener for toggling like feature
+        heart.addEventListener('click', likeHeart);
+
+        // Event listener for closing dialog
+        close.addEventListener('click', () => {
+            insta.removeEventListener('click', instagram);
+            heart.removeEventListener('click', likeHeart);
+            dialog.close();
         });
     });
     
+    function saveData(){
+        localStorage.setItem("popUpHeart", heart.innerHTML)
+        localStorage.setItem("tileHeart", like.innerHTML);
+    }
 }
 
-// Event listener for toggling like feature
-heart.addEventListener('click', () => {
-    if(heart.classList.toggle('clicked')) {
-        heart.innerHTML ='<img src ="./images/heart_filled.png">';
-        like.innerHTML ='<img src ="./images/heart_filled.png">'
-    } else {
-        heart.innerHTML ='<img src ="./images/heart_empty.png">'
-        like.innerHTML = '';
-}})
 
-function saveData(){
-    localStorage.setItem("liked", heart.innerHTML);
-}
