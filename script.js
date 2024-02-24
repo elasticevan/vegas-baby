@@ -34,6 +34,9 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
+
+const heartEmpty ='<img src ="./images/heart_empty.png">';
+const heartFull ='<img src ="./images/heart_filled.png">';
 //objects use for...in vs arrays who use for...of
 for (let store of stores) {
     // Create tile
@@ -64,29 +67,36 @@ for (let store of stores) {
     }
 
     function likeHeart(){
-        if(heart.classList.toggle('clicked')) {
-            heart.innerHTML ='<img src ="./images/heart_filled.png">';
-            like.innerHTML ='<img src ="./images/heart_filled.png">'
-        } else {
-            heart.innerHTML ='<img src ="./images/heart_empty.png">'
+        if(tile.classList.contains('clicked')) {
+            heart.innerHTML = heartEmpty;
             like.innerHTML = '';
+            tile.classList.remove('clicked');
+        } else {
+            heart.innerHTML = heartFull;
+            like.innerHTML = heartFull;
+            tile.classList.add('clicked');
         }
+  
     }
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
+        if(tile.classList.contains('clicked')) {
+            heart.innerHTML = heartFull;
+        } else {
+            heart.innerHTML = heartEmpty;
+        };
         maps.src = store.location;
         dialog.showModal();
+        // Event listener for insta link
         insta.addEventListener('click', instagram);
-
         // Event listener for toggling like feature
         heart.addEventListener('click', likeHeart);
-
+        
         // Event listener for closing dialog
         close.addEventListener('click', () => {
             insta.removeEventListener('click', instagram);
             heart.removeEventListener('click', likeHeart);
             dialog.close();
-            saveData();
         });
     });
 
