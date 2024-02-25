@@ -62,25 +62,27 @@ for (let store of stores) {
     // Append tile to food container
     food.appendChild(tile);
 
+    // specify which map to tile
     function instagram(){
         window.open(store.insta, '_blank')
     }
-
+    // check if tile has been liked
     function likeHeart(){
-        if(tile.classList.contains('clicked')) {
+        if(like.classList.contains('clicked')) {
             heart.innerHTML = heartEmpty;
             like.innerHTML = '';
-            tile.classList.remove('clicked');
+            like.classList.remove('clicked');
         } else {
             heart.innerHTML = heartFull;
             like.innerHTML = heartFull;
-            tile.classList.add('clicked');
+            like.classList.add('clicked');
         }
-  
+        saveData();
     }
+
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
-        if(tile.classList.contains('clicked')) {
+        if(like.classList.contains('clicked')) {
             heart.innerHTML = heartFull;
         } else {
             heart.innerHTML = heartEmpty;
@@ -101,9 +103,13 @@ for (let store of stores) {
     });
 
     function saveData(){
-        localStorage.setItem("popUpHeart", heart.innerHTML)
-        localStorage.setItem("tileHeart", like.innerHTML);
+        localStorage.setItem("popHeart", like.innerHTML)
     }
+    function showTask() {
+        like.innerHTML = localStorage.getItem("popHeart")
+    }
+    //localStorage.removeItem("popHeart");
+    showTask();
 }
 
 
