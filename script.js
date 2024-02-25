@@ -16,12 +16,19 @@ let heart = document.createElement('div');
 let insta = document.createElement('div');
 let close = document.createElement('div');
 
+//declare heart images
+const heartEmpty ='<img src ="./images/heart_empty.png">';
+const heartFull ='<img src ="./images/heart_filled.png">';
+
+// add class to var
 maps.classList.add('map');
 socials.classList.add('bottom');
 heart.classList.add('heart');
 insta.classList.add('insta');
 close.classList.add('close');
-heart.innerHTML = '<img src="./images/heart_empty.png">';
+
+// icons
+heart.innerHTML = heartEmpty;
 insta.innerHTML = '<img src="./images/insta.png">';
 close.innerHTML = '<img src="./images/close_icon.png">';
 
@@ -34,10 +41,9 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
-
-const heartEmpty ='<img src ="./images/heart_empty.png">';
-const heartFull ='<img src ="./images/heart_filled.png">';
 //objects use for...in vs arrays who use for...of
+let like;
+let tile;
 for (let store of stores) {
     // Create tile
     let tile = document.createElement('div');
@@ -68,32 +74,30 @@ for (let store of stores) {
     }
     // check if tile has been liked
     function likeHeart(){
-        if(like.classList.contains('clicked')) {
+        if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartEmpty;
             like.innerHTML = '';
-            like.classList.remove('clicked');
+            tile.classList.remove('clicked');
         } else {
             heart.innerHTML = heartFull;
             like.innerHTML = heartFull;
-            like.classList.add('clicked');
+            tile.classList.add('clicked');
         }
-        saveData();
     }
-
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
-        if(like.classList.contains('clicked')) {
+        if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartFull;
         } else {
             heart.innerHTML = heartEmpty;
         };
+        //saveData(tile.classList.contains('clicked'));
         maps.src = store.location;
         dialog.showModal();
         // Event listener for insta link
         insta.addEventListener('click', instagram);
         // Event listener for toggling like feature
         heart.addEventListener('click', likeHeart);
-        
         // Event listener for closing dialog
         close.addEventListener('click', () => {
             insta.removeEventListener('click', instagram);
@@ -102,14 +106,25 @@ for (let store of stores) {
         });
     });
 
-    function saveData(){
-        localStorage.setItem("popHeart", like.innerHTML)
+    function saveData(data){
+        localStorage.setItem("popHeart", data)
     }
+
+    let tiles = document.querySelectorAll('.tile');
     function showTask() {
-        like.innerHTML = localStorage.getItem("popHeart")
+        let heartState = localStorage.getItem("popHeart");
+        for (let tile of tiles) {
+            if(heartState == true) {
+                if(tile.classList.contains(heartState)) {
+                    like.innerHTML = heartFull;
+                }
+            } else {
+                like.innerHTML = '';
+            }
+        }
     }
-    //localStorage.removeItem("popHeart");
-    showTask();
+//    showTask();
 }
 
+//localStorage.removeItem("popHeart");
 
