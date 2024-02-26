@@ -1,5 +1,7 @@
 // JS for Vegas
 const food = document.querySelector('.food');
+const grub = document.querySelector('.grub');
+const mapView = document.querySelector('.mapview')
 
 let stores = [
     {name: "mango mango", image: "https://tinyurl.com/29yfg3aq", insta: "https://www.instagram.com/mangomango.lasvegas/", location: "http://tinyurl.com/2xwwaq48"},
@@ -48,6 +50,7 @@ for (let store of stores) {
     // Create tile
     let tile = document.createElement('div');
     tile.classList.add('tile');
+    let tiles = document.querySelectorAll('.tile');
 
     // Create image element
     let img = document.createElement('img');
@@ -64,7 +67,6 @@ for (let store of stores) {
     let like = document.createElement('span');
     like.classList.add('heart');
     tile.appendChild(like);
-
     // Append tile to food container
     food.appendChild(tile);
 
@@ -72,6 +74,11 @@ for (let store of stores) {
     function instagram(){
         window.open(store.insta, '_blank')
     }
+
+    function saveData(data){
+        localStorage.setItem("popHeart", data)
+    }
+
     // check if tile has been liked
     function likeHeart(){
         if(tile.classList.contains('clicked')) {
@@ -84,6 +91,10 @@ for (let store of stores) {
             tile.classList.add('clicked');
         }
     }
+    for (let tile of tiles) {
+        saveData(tile.classList.contains('clicked') ? 'clicked' : '')
+    }
+
     // Event listener for opening dialog on tile click
     tile.addEventListener('click', () => {
         if(tile.classList.contains('clicked')) {
@@ -91,9 +102,10 @@ for (let store of stores) {
         } else {
             heart.innerHTML = heartEmpty;
         };
-        //saveData(tile.classList.contains('clicked'));
+
         maps.src = store.location;
         dialog.showModal();
+
         // Event listener for insta link
         insta.addEventListener('click', instagram);
         // Event listener for toggling like feature
@@ -106,25 +118,22 @@ for (let store of stores) {
         });
     });
 
-    function saveData(data){
-        localStorage.setItem("popHeart", data)
-    }
-
-    let tiles = document.querySelectorAll('.tile');
     function showTask() {
         let heartState = localStorage.getItem("popHeart");
         for (let tile of tiles) {
-            if(heartState == true) {
+            if(heartState === 'clicked') {
                 if(tile.classList.contains(heartState)) {
                     like.innerHTML = heartFull;
                 }
-            } else {
+            } else if (heartState === null){
                 like.innerHTML = '';
             }
         }
+        console.log(heartState)
     }
-//    showTask();
+    showTask();
 }
-
 //localStorage.removeItem("popHeart");
+
+//can't get hearts to stay on tile upon reset.  wtf?!!?
 

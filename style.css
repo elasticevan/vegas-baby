@@ -9,22 +9,43 @@ body {
 
 .header,
 .content,
-.tile {
+.tile,
+.tabs {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .header {
-    padding: 5px;
+    padding: 22px;
     font-size: 2em;
     font-weight: 900;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: rgb(255, 222, 222);
     color: rgba(255, 140, 94, 0.7);
-
 }
 
+.tabs {
+    background-color: rgb(255, 222, 222);
+    height: 2em;
+    gap: 1em;
+}
+
+.tabs .grubhub,
+.tabs .mapview {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(255, 205, 186);
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
+    border-radius: 5px;
+    width: 4em;
+    margin: 0;
+    padding: 8px;
+    
+
+}
 .content {
     flex: 1;
     flex-direction: column;
@@ -32,10 +53,6 @@ body {
     width: 100%;
 }
 
-.map {
-    flex-wrap: wrap;
-    flex: 1;
-}
 
 .food {
     display: flex;
