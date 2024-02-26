@@ -1,7 +1,31 @@
 // JS for Vegas
+const content = document.querySelector('.content');
 const food = document.querySelector('.food');
-const grub = document.querySelector('.grub');
+
+const grub = document.querySelector('.grubhub');
 const mapView = document.querySelector('.mapview')
+const fullMap = document.querySelector('.fullMap')
+
+
+
+grub.addEventListener('click', () => {
+    fullMap.style.display = "none";
+    content.style.display = "block";
+    grub.style.opacity = 0.5;
+    grub.style.pointerEvents = "none";
+    mapView.style.opacity = 1;
+    mapView.style.pointerEvents = "all";
+})
+mapView.addEventListener('click', e => {
+    content.style.display = "none";
+    fullMap.style.display = "block";
+    mapView.style.opacity = 0.5;
+    mapView.style.pointerEvents = "none";
+    grub.style.opacity = 1;
+    grub.style.pointerEvents = "all";
+})
+
+
 
 let stores = [
     {name: "mango mango", image: "https://tinyurl.com/29yfg3aq", insta: "https://www.instagram.com/mangomango.lasvegas/", location: "http://tinyurl.com/2xwwaq48"},
