@@ -8,7 +8,7 @@ const fullMap = document.querySelector('.fullMap')
 
 function initMap() {
     // Create a new map object
-    const map = new google.maps.Map(document.querySelector('.fullMap'), {
+    const map = new google.maps.Map(fullMap, {
         center: {lat: 36.1466403, lng: -115.1585639}, // Center the map on a specific location
         zoom: 11 // Set the initial zoom level
     });
