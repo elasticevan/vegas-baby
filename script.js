@@ -17,11 +17,12 @@ grub.addEventListener('click', () => {
 })
 mapView.addEventListener('click', e => {
     content.style.display = "none";
-    fullMap.style.display = "block";
+    fullMap.style.display = "flex";
     mapView.style.opacity = 0.5;
     mapView.style.pointerEvents = "none";
     grub.style.opacity = 1;
     grub.style.pointerEvents = "all";
+    window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_blank")
 })
 
 

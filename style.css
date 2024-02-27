@@ -53,15 +53,17 @@ body {
 }
 .fullMap {
     display: none;
+    justify-content: center;
+    align-items: center;
     background-color: aquamarine;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     border: 1px solid #ccc;
 }
 
 .fullMap iframe {
     width: 100%;
-    height: 50em;
+    height: 40em;
 }
 .content {
     display: block;
