@@ -17,12 +17,12 @@ grub.addEventListener('click', () => {
 })
 mapView.addEventListener('click', e => {
     content.style.display = "none";
-    fullMap.style.display = "flex";
+    fullMap.style.display = "block";
     mapView.style.opacity = 0.5;
     mapView.style.pointerEvents = "none";
     grub.style.opacity = 1;
     grub.style.pointerEvents = "all";
-    window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_blank")
+    window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_ blank")
 })
 
 
@@ -99,10 +99,6 @@ for (let store of stores) {
         window.open(store.insta, '_blank')
     }
 
-    function saveData(data){
-        localStorage.setItem("popHeart", data)
-    }
-
     // check if tile has been liked
     function likeHeart(){
         if(tile.classList.contains('clicked')) {
@@ -114,9 +110,6 @@ for (let store of stores) {
             like.innerHTML = heartFull;
             tile.classList.add('clicked');
         }
-    }
-    for (let tile of tiles) {
-        saveData(tile.classList.contains('clicked') ? 'clicked' : '')
     }
 
     // Event listener for opening dialog on tile click
@@ -141,21 +134,6 @@ for (let store of stores) {
             dialog.close();
         });
     });
-
-    function showTask() {
-        let heartState = localStorage.getItem("popHeart");
-        for (let tile of tiles) {
-            if(heartState === 'clicked') {
-                if(tile.classList.contains(heartState)) {
-                    like.innerHTML = heartFull;
-                }
-            } else if (heartState === null){
-                like.innerHTML = '';
-            }
-        }
-        console.log(heartState)
-    }
-    showTask();
 }
 //localStorage.removeItem("popHeart");
 
