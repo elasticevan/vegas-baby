@@ -124,12 +124,13 @@ for (let store of stores) {
     let heartValue = localStorage.getItem('myLikes');
 
     // Create like icon
+    /*
     let like = document.createElement('span');
     like.classList.add('heart');
     tile.appendChild(like);
     // Append tile to food container
     food.appendChild(tile);
-    
+    */
     // specify which map to tile
     function instagram(){
         window.open(store.insta, '_blank')
@@ -139,11 +140,10 @@ for (let store of stores) {
     function likeHeart(){
         if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartEmpty;
-            like.innerHTML = '';
             tile.classList.remove('clicked');
         } else {
             heart.innerHTML = heartFull;
-            like.innerHTML = heartFull;
+            tile.style.borderColor = "rgb(255, 222, 222)";
             tile.classList.add('clicked');
         }
     }
