@@ -52,7 +52,7 @@ body {
     pointer-events: none;
 }
 .fullMap {
-    content: url(http://tinyurl.com/2denl63w);
+    content: url(./images/tor.jpg);
     display: none;
     object-fit: cover;
 }
