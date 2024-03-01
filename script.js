@@ -144,7 +144,7 @@ for (let store of stores) {
             tile.classList.remove('clicked');
         } else {
             heart.innerHTML = heartFull;
-            tile.style.borderColor ='rgb(255, 222, 222)';
+            tile.style.borderColor = 'rgb(252,115,93)';
             tile.classList.add('clicked');
         }
     }
