@@ -32,10 +32,10 @@ let stores = [
     {name: "ton shou", image: "https://tinyurl.com/23o6vtkv", insta: "https://www.instagram.com/tonshoulv/", location: "https://tinyurl.com/22sfv2p9"},
     {name: "purple potato", image: "http://tinyurl.com/242lhv4y", insta: "https://www.instagram.com/purplepotatolv/", location: "https://tinyurl.com/26249kep"},
     {name: "303", image: "https://tinyurl.com/263c63ku", insta: "https://www.instagram.com/303inthecut/?hl=en", location: "https://tinyurl.com/2xpa6b2q"},
-    {name: "yo mochi", image: "https://tinyurl.com/2897tu2r", insta: "https://www.instagram.com/yomochiusa/?hl=en", location: "https://tinyurl.com/2yg776sf"},
-    {name: "pappa roti", image: "https://tinyurl.com/28l8faku", insta: "https://www.instagram.com/papparotilasvegas/", location: "https://tinyurl.com/2akq64dy"},
-    {name: "cheong- dam hall", image: "https://tinyurl.com/29j2ghxh", insta: "https://www.instagram.com/cheongdamfoodhall/?hl=en", location: "https://tinyurl.com/274z9qpn"},
-    {name: "all' antico vinaio", image: "https://tinyurl.com/22nt93qk", insta: "https://www.instagram.com/allanticovinaiolv/", location: "https://tinyurl.com/229828yz"},
+    {name: "yo mochi", image: "https://tinyurl.com/2897tu2r", insta: "https://www.instagram.com/yomochiusa/?hl=en", location: "https://tinyurl.com/26gz9vpv"},
+    {name: "pappa roti", image: "https://tinyurl.com/28l8faku", insta: "https://www.instagram.com/papparotilasvegas/", location: "https://tinyurl.com/2bx6uuut"},
+    {name: "cheong- dam hall", image: "https://tinyurl.com/29j2ghxh", insta: "https://www.instagram.com/cheongdamfoodhall/?hl=en", location: "https://tinyurl.com/245dtflh"},
+    {name: "all' antico vinaio", image: "https://tinyurl.com/22nt93qk", insta: "https://www.instagram.com/allanticovinaiolv/", location: "https://tinyurl.com/2yzrj34w"},
     {name: "taste budz creole", image: "https://tinyurl.com/25zoqz4h", insta: "https://www.instagram.com/tastebudzlv/", location: "https://tinyurl.com/22gzet6r"},
     {name: "fukuya market", image: "https://tinyurl.com/25cfxmdd", insta: "https://www.instagram.com/fukuyalasvegas/", location: "https://tinyurl.com/2av6pje7"},
     {name: "kushi bbq", image: "https://tinyurl.com/2439or67", insta: "https://www.instagram.com/kushibbq/?hl=en", location: "https://tinyurl.com/2a678v3f"},
@@ -100,14 +100,12 @@ dialog.appendChild(socials);
 food.appendChild(dialog);
 
 //objects use for...in vs arrays who use for...of
-let like;
+
 let tile;
-let tiles;
 for (let store of stores) {
     // Create tile
     let tile = document.createElement('div');
     tile.classList.add('tile');
-    tiles = document.querySelectorAll('.tile');
 
     // Create image element
     let img = document.createElement('img');
@@ -123,12 +121,6 @@ for (let store of stores) {
 
     let heartValue = localStorage.getItem('myLikes');
 
-    // Create like icon
-    /*
-    let like = document.createElement('span');
-    like.classList.add('heart');
-    tile.appendChild(like);
-    */
     // Append tile to food container
     food.appendChild(tile);
     
@@ -174,15 +166,40 @@ for (let store of stores) {
     });
 
 }
-function sortItems(criteria) {
 
-        if(criteria === 'Name'){
-            tiles.sort((a, b) => a.textContent - b.textContent)
-        }
+
+// Get all the tiles
+let tiles = Array.from(document.querySelectorAll('.tile'));
+
+function sortItems(criteria) {
+    if(criteria === 'Name'){
+        // Sort the tiles based on their text content
+        tiles.sort((a, b) => {
+            let textA = a.querySelector('.text').textContent.toLowerCase();
+            let textB = b.querySelector('.text').textContent.toLowerCase();
+            return textA.localeCompare(textB);
+        });
+
+        // Remove existing tiles from the food container
+        food.innerHTML = '';
+
+        // Append the sorted tiles back to the food container
+        tiles.forEach(tile => food.appendChild(tile));
+    } else if (criteria === 'Random'){
+        const randomIndex = Math.floor(Math.random() * stores.length);
+
+        // Loop through tiles
+        tiles.forEach((tile, index) => {
+            if (index !== randomIndex) {
+                // Remove all tiles except the one at the randomly chosen index
+                tile.remove();
+            }
+        });
+    }
+    
 
 }
 
-console.log(tiles)
 //localStorage.removeItem("popHeart");
 
 //can't get hearts to stay on tile upon reset.  wtf?!!?
