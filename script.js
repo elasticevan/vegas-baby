@@ -128,9 +128,10 @@ for (let store of stores) {
     let like = document.createElement('span');
     like.classList.add('heart');
     tile.appendChild(like);
+    */
     // Append tile to food container
     food.appendChild(tile);
-    */
+    
     // specify which map to tile
     function instagram(){
         window.open(store.insta, '_blank')
@@ -143,7 +144,7 @@ for (let store of stores) {
             tile.classList.remove('clicked');
         } else {
             heart.innerHTML = heartFull;
-            tile.style.borderColor = "rgb(255, 222, 222)";
+            tile.style.borderColor ='rgb(255, 222, 222)';
             tile.classList.add('clicked');
         }
     }
