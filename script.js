@@ -196,9 +196,13 @@ function sortItems(criteria) {
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
                 // Remove all tiles except the one at the randomly chosen index
-                tile.remove();
+                tile.style.display = 'none';
             }
         });
+    } else if (criteria === "Most Popular") {
+        tiles.forEach(tile => {tile.style.display = ''})
+            
+        
     }
     
 }
