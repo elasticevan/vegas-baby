@@ -17,13 +17,12 @@ body {
 }
 
 .header {
-    padding: 22px;
-    font-size: 2em;
-    font-weight: 900;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: rgb(255, 222, 222);
-    color: rgba(255, 140, 94, 0.7);
 }
+.header img {
+    width: 25em;
+}
+
 
 .tabs {
     background-color: rgb(255, 222, 222);
