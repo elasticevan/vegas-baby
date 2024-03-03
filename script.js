@@ -122,9 +122,6 @@ for (let store of stores) {
     text.textContent = store.name;
     tile.appendChild(text);
 
-
-    let heartValue = localStorage.getItem('myLikes');
-
     // Append tile to food container
     food.appendChild(tile);
     
@@ -146,6 +143,32 @@ for (let store of stores) {
     }
 
     // Event listener for opening dialog on tile click
+    
+    tile.addEventListener('click', popup => {
+
+        if(tile.classList.contains('clicked')) {
+            heart.innerHTML = heartFull;
+        } else {
+            heart.innerHTML = heartEmpty;
+        };
+        maps.src = store.location;
+        dialog.showModal();
+    
+        // Event listener for insta link
+        insta.addEventListener('click', instagram);
+        // Event listener for toggling like feature
+        heart.addEventListener('click', likeHeart);
+
+        // Event listener for closing dialog
+        close.addEventListener('click', () => {
+            insta.removeEventListener('click', instagram);
+            heart.removeEventListener('click', likeHeart);
+            dialog.close();
+        });
+    })
+    
+}
+    /*
     tile.addEventListener('click', () => {
         if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartFull;
@@ -167,9 +190,10 @@ for (let store of stores) {
             heart.removeEventListener('click', likeHeart);
             dialog.close();
         });
+    
     });
+    */
 
-}
 
 
 // Get all the tiles
@@ -183,7 +207,6 @@ function sortItems(criteria) {
             let textB = b.querySelector('.text').textContent.toLowerCase();
             return textA.localeCompare(textB);
         });
-
         // Remove existing tiles from the food container
         food.innerHTML = '';
 
@@ -200,9 +223,7 @@ function sortItems(criteria) {
             }
         });
     } else if (criteria === "Most Popular") {
-        tiles.forEach(tile => {tile.style.display = ''})
-            
-        
+        tiles.forEach(tile => {tile.style.display = ''})   
     }
     
 }
