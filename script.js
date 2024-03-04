@@ -123,7 +123,7 @@ for (let store of stores) {
     text.textContent = store.name;
     tile.appendChild(text);
 
-    console.log(typeof text.textContent)
+    
     // Append tile to food container
     food.appendChild(tile);
     
@@ -231,7 +231,22 @@ function sortItems(criteria) {
     
 }
 
+const input = document.querySelector('input');
+const searchBtn = document.getElementById('searchButton')
 
+function findthatfucker(name) {
+    if (!text.textContent.includes(input.value)) {
+        tile.style.display = 'none';
+    }
+}
+input.addEventListener('keydown', event => {
+    tiles.forEach(tile => {
+    if (!text.textContent.includes(event.key)) {
+        tile.style.display = 'none';
+    }
+})
+})
+searchBtn.addEventListener('click', () => findthatfucker)
 
 //localStorage.removeItem("popHeart");
 
