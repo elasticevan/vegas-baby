@@ -1,4 +1,7 @@
 // JS for Vegas
+
+
+
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 
@@ -24,10 +27,8 @@ mapView.addEventListener('click', e => {
     window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_ blank")
 })
 
-
-
 let stores = [
-    {name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/27qm63jl"},
+    {name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/yk7u5eo5"},
     {name: "raising canes", image: "./images/chicken.webp", insta: "https://tinyurl.com/23fmbwot", location: "https://tinyurl.com/2xqmxwl3"},
     {name: "sbarro", image: "./images/turtlepower.png", insta: "https://tinyurl.com/22chcba8", location: "https://tinyurl.com/237e8dha"},
     {name: "empanada factory", image: "https://tinyurl.com/2a69st3j", insta: "https://www.instagram.com/empanada.factorylv/?hl=en", location: "https://tinyurl.com/24hlko2g"},
@@ -122,6 +123,7 @@ for (let store of stores) {
     text.textContent = store.name;
     tile.appendChild(text);
 
+    console.log(typeof text.textContent)
     // Append tile to food container
     food.appendChild(tile);
     
@@ -143,9 +145,7 @@ for (let store of stores) {
     }
 
     // Event listener for opening dialog on tile click
-    
     tile.addEventListener('click', popup => {
-
         if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartFull;
         } else {
@@ -211,7 +211,10 @@ function sortItems(criteria) {
         food.innerHTML = '';
 
         // Append the sorted tiles back to the food container
-        tiles.forEach(tile => food.appendChild(tile));
+        tiles.forEach(tile => {
+            food.appendChild(tile);
+            tile.addEventListener('click', popUp);
+        });
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
 
