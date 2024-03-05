@@ -234,18 +234,22 @@ function sortItems(criteria) {
 const input = document.querySelector('input');
 const searchBtn = document.getElementById('searchButton')
 
-function findthatfucker(name) {
+function findthatfucker() {
     if (!text.textContent.includes(input.value)) {
         tile.style.display = 'none';
     }
 }
-input.addEventListener('keydown', event => {
+input.addEventListener('input', event => {
+    const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     tiles.forEach(tile => {
-    if (!text.textContent.includes(event.key)) {
-        tile.style.display = 'none';
-    }
-})
-})
+        const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
+        if (!textContent.includes(inputValue)) {
+            tile.style.display = 'none'; // Hide tile if it does not contain input value
+        } else {
+            tile.style.display = ''; // Show tile if it contains input value
+        }
+    });
+});
 searchBtn.addEventListener('click', () => findthatfucker)
 
 //localStorage.removeItem("popHeart");
