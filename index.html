@@ -10,23 +10,27 @@
 <body>
     <div class="header"><img src ="./images/vegas.png"></div>
     <div class="tabs">
-        <div class="sortFood">
-            <label for="sort">Sort by:</label>
-            <select id="sort" onchange="sortItems(this.value)">
-                <option value="Most Popular">Most Popular</option>
-                <option value="Name">Name</option>
-                <option value="Random">Random</option>
-            </select>
-        </div> 
+        <div class="left">
+            
+            <div class="find">
+                <form action="/search" method="GET">
+                    <input type="text" id="search" name="q" placeholder=" ">
+                    <button type="submit" id="searchButton">Search</button>
+                </form>
+            </div>
+            <div class="sortFood">
+                <label for="sort">Sort by:</label>
+                <select id="sort" onchange="sortItems(this.value)">
+                    <option value="Most Popular">Most Popular</option>
+                    <option value="Name">Name</option>
+                    <option value="Random">Random</option>
+                </select>
+            </div> 
+        </div>
         <div class="grubhub">FOOD</div>
         <div class="mapview">MAP</div>
         
-        <div class="find">
-            <form action="/search" method="GET">
-                <input type="text" id="search" name="q" placeholder="Enter your search term...">
-                <button type="submit" id="searchButton">Search</button>
-            </form>
-        </div>
+        
     
     </div>
     <div class="content">

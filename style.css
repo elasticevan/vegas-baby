@@ -29,6 +29,17 @@ body {
     gap: 1em;
 }
 
+.left {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+
+input {
+    width: 7em;
+    flex-shrink: 1;
+}
+
 .tabs .grubhub,
 .tabs .mapview {
     display: flex;
@@ -141,6 +152,8 @@ iframe {
     height: 420px;
     border-radius: 1em;
 }
+
+
 /*
 .tile .heart {
     position: absolute;
