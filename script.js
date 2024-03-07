@@ -145,7 +145,7 @@ for (let store of stores) {
     }
 
     // Event listener for opening dialog on tile click
-    tile.addEventListener('click', popup => {
+    tile.addEventListener('click', () => {
         if(tile.classList.contains('clicked')) {
             heart.innerHTML = heartFull;
         } else {
@@ -213,7 +213,6 @@ function sortItems(criteria) {
         // Append the sorted tiles back to the food container
         tiles.forEach(tile => {
             food.appendChild(tile);
-            tile.addEventListener('click', popUp);
         });
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
@@ -232,13 +231,7 @@ function sortItems(criteria) {
 }
 
 const input = document.querySelector('input');
-const searchBtn = document.getElementById('searchButton')
 
-function findthatfucker() {
-    if (!text.textContent.includes(input.value)) {
-        tile.style.display = 'none';
-    }
-}
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     tiles.forEach(tile => {
@@ -250,7 +243,7 @@ input.addEventListener('input', event => {
         }
     });
 });
-searchBtn.addEventListener('click', () => findthatfucker)
+
 
 //localStorage.removeItem("popHeart");
 
