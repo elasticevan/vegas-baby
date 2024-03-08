@@ -58,12 +58,17 @@ input {
 }
 
 label,
-option,
-.find input{
+option {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(21,97,136);
     font-weight: bolder;
+}
 
+option,
+.find input{
+    color: rgb(30,139,195);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
 
 }
 
