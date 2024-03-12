@@ -33,11 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-bottom: 1em;
-}
-
-input {
-    width: 11em;
-    flex-shrink: 1;
+    width: fit-content;
 }
 
 .tabs .grubhub,
