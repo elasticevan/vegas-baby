@@ -111,6 +111,8 @@ for (let store of stores) {
     // Create tile
     let tile = document.createElement('div');
     tile.classList.add('tile');
+    let tiles = document.querySelectorAll('.tile');
+    console.log(Array.isArray(tiles));
 
     // Create image element
     let img = document.createElement('img');
@@ -141,6 +143,8 @@ for (let store of stores) {
             heart.innerHTML = heartFull;
             tile.style.borderColor = 'rgb(252,115,93)';
             tile.classList.add('clicked');
+            tiles.unshift(tile);
+            
         }
     }
 
@@ -243,9 +247,4 @@ input.addEventListener('input', event => {
         }
     });
 });
-
-
-//localStorage.removeItem("popHeart");
-
-//can't get hearts to stay on tile upon reset.  wtf?!!?
 
