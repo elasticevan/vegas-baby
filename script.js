@@ -111,8 +111,9 @@ for (let store of stores) {
     // Create tile
     let tile = document.createElement('div');
     tile.classList.add('tile');
-    let tiles = document.querySelectorAll('.tile');
-    console.log(Array.isArray(tiles));
+
+    //likely unnecessary to declare but idk
+    let tiles = Array.from(document.querySelectorAll('.tile'));
 
     // Create image element
     let img = document.createElement('img');
@@ -143,7 +144,14 @@ for (let store of stores) {
             heart.innerHTML = heartFull;
             tile.style.borderColor = 'rgb(252,115,93)';
             tile.classList.add('clicked');
-            tiles.unshift(tile);
+            //move to top of list
+            let elementIndex = tiles.unshift();
+            console.log(elementIndex)
+            let elementLiked = tiles.slice(elementIndex, 1);
+            console.log(elementLiked)
+            tiles.splice(elementLiked);
+            
+
             
         }
     }
