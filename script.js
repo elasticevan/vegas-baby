@@ -144,10 +144,8 @@ for (let store of stores) {
             heart.innerHTML = heartFull;
             tile.style.borderColor = 'rgb(252,115,93)';
             tile.classList.add('clicked');
-            //move to top of list
-            let elementIndex = tiles.unshift();
-            console.log(elementIndex)
-            let elementLiked = tiles.slice(elementIndex, 1);
+            //move to top of list, NOT WORKING LOSER
+            let elementLiked = tiles.slice();
             console.log(elementLiked)
             tiles.splice(elementLiked);
             
@@ -256,3 +254,11 @@ input.addEventListener('input', event => {
     });
 });
 
+//array tests
+const test = document.querySelector('.test');
+const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
+for(let key of array) {
+    let cube = document.createElement('div');
+    cube.textContent = key;
+    test.appendChild(cube);
+}
