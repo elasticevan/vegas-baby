@@ -259,6 +259,17 @@ const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
 for(let key of array) {
     let cube = document.createElement('div');
+    cube.classList = 'test';
     cube.textContent = key;
     test.appendChild(cube);
+    cube.addEventListener('click', () => {
+        let choice = array.indexOf(key);
+        console.log(choice);
+        let selected = array.slice(choice);
+        array.unshift(selected);
+        console.log(array)
+
+
+    })
 }
+
