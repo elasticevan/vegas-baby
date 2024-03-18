@@ -267,7 +267,7 @@ for(let key of array) {
         console.log(choice);
         let selected = array.splice(choice, 1);
         console.log(selected);
-        array.unshift(selected);
+        array.unshift(`${selected}`);
         console.log(array);
     })
 }
