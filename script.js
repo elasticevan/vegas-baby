@@ -258,18 +258,10 @@ input.addEventListener('input', event => {
 const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
 
-function selectedElement(key) {
-    let choice = array.indexOf(key);
-    console.log(choice);
-    let selected = array.splice(choice, 1);
-    console.log(selected);
-    array.unshift(`${selected}`);
-    console.log(array);
-}
-
+function display(){
 for(let key of array) {
     let cube = document.createElement('div');
-    cube.classList = 'test';
+    cube.classList = 'album';
     cube.textContent = key;
     test.appendChild(cube);
     cube.addEventListener('click', selectedElement.bind(null, key));
@@ -289,4 +281,21 @@ for(let key of array) {
     })
     */
 }
+}
+display();
 
+//let albums = Array.from(document.querySelectorAll('.album'));
+let albums = document.querySelectorAll('.album');
+console.log(albums);
+
+function selectedElement(key) {
+    let choice = array.indexOf(key);
+    console.log(choice);
+    let selected = array.splice(choice, 1);
+    console.log(selected);
+    array.unshift(`${selected}`);
+    console.log(array);
+    test.innerHTML = '';
+    display();
+
+}
