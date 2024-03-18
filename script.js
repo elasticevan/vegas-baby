@@ -257,18 +257,36 @@ input.addEventListener('input', event => {
 //array tests
 const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
+
+function selectedElement(key) {
+    let choice = array.indexOf(key);
+    console.log(choice);
+    let selected = array.splice(choice, 1);
+    console.log(selected);
+    array.unshift(`${selected}`);
+    console.log(array);
+}
+
 for(let key of array) {
     let cube = document.createElement('div');
     cube.classList = 'test';
     cube.textContent = key;
     test.appendChild(cube);
+    cube.addEventListener('click', selectedElement.bind(null, key));
+    
+    //removed eventlistener from loop
+    /*
     cube.addEventListener('click', () => {
+        //get index of clicked element
         let choice = array.indexOf(key);
         console.log(choice);
+        //remove clicked element from array
         let selected = array.splice(choice, 1);
         console.log(selected);
+        //add selected element to beginning of array, shifting array elements by +1
         array.unshift(`${selected}`);
         console.log(array);
     })
+    */
 }
 
