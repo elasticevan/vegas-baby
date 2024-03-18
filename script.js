@@ -71,6 +71,7 @@ let stores = [
 
 ]
 
+ 
 // Create modal outside of loop
 let dialog = document.createElement('dialog');
 let maps = document.createElement('iframe');
@@ -106,78 +107,74 @@ food.appendChild(dialog);
 
 //objects use for...in vs arrays who use for...of
 
-let tile;
-for (let store of stores) {
-    // Create tile
-    let tile = document.createElement('div');
-    tile.classList.add('tile');
+function createTiles() {
+    for (let store of stores) {
+        // Create tile
+        let tile = document.createElement('div');
+        tile.classList.add('tile');
 
-    //likely unnecessary to declare but idk
-    let tiles = Array.from(document.querySelectorAll('.tile'));
+        //likely unnecessary to declare but idk
+        let tiles = Array.from(document.querySelectorAll('.tile'));
 
-    // Create image element
-    let img = document.createElement('img');
-    img.src = store.image;
-    tile.appendChild(img);
+        // Create image element
+        let img = document.createElement('img');
+        img.src = store.image;
+        tile.appendChild(img);
 
-    // Create text span
-    text = document.createElement('span');
-    text.classList.add('text');
-    text.textContent = store.name;
-    tile.appendChild(text);
+        // Create text span
+        text = document.createElement('span');
+        text.classList.add('text');
+        text.textContent = store.name;
+        tile.appendChild(text);
 
-    
-    // Append tile to food container
-    food.appendChild(tile);
-    
-    // specify which map to tile
-    function instagram(){
-        window.open(store.insta, '_blank')
-    }
 
-    // check if tile has been liked
-    function likeHeart(){
-        if(tile.classList.contains('clicked')) {
-            heart.innerHTML = heartEmpty;
-            tile.classList.remove('clicked');
-        } else {
-            heart.innerHTML = heartFull;
-            tile.style.borderColor = 'rgb(252,115,93)';
-            tile.classList.add('clicked');
-            //move to top of list, NOT WORKING LOSER
-            let elementLiked = tiles.slice();
-            console.log(elementLiked)
-            tiles.splice(elementLiked);
-            
+        // Append tile to food container
+        food.appendChild(tile);
 
-            
+        // specify which map to tile
+        function instagram(){
+            window.open(store.insta, '_blank')
         }
+
+        // check if tile has been liked
+        function likeHeart(){
+            if(tile.classList.contains('clicked')) {
+                heart.innerHTML = heartEmpty;
+                tile.classList.remove('clicked');
+            } else {
+                heart.innerHTML = heartFull;
+                tile.style.borderColor = 'rgb(252,115,93)';
+                tile.classList.add('clicked');
+            }
+        }
+
+        // Event listener for opening dialog on tile click
+        tile.addEventListener('click', () => {
+            if(tile.classList.contains('clicked')) {
+                heart.innerHTML = heartFull;
+            } else {
+                heart.innerHTML = heartEmpty;
+            };
+            maps.src = store.location;
+            dialog.showModal();
+        
+            // Event listener for insta link
+            insta.addEventListener('click', instagram);
+            // Event listener for toggling like feature
+            heart.addEventListener('click', likeHeart);
+
+            // Event listener for closing dialog
+            close.addEventListener('click', () => {
+                insta.removeEventListener('click', instagram);
+                heart.removeEventListener('click', likeHeart);
+                dialog.close();
+            });
+        })
+
     }
-
-    // Event listener for opening dialog on tile click
-    tile.addEventListener('click', () => {
-        if(tile.classList.contains('clicked')) {
-            heart.innerHTML = heartFull;
-        } else {
-            heart.innerHTML = heartEmpty;
-        };
-        maps.src = store.location;
-        dialog.showModal();
-    
-        // Event listener for insta link
-        insta.addEventListener('click', instagram);
-        // Event listener for toggling like feature
-        heart.addEventListener('click', likeHeart);
-
-        // Event listener for closing dialog
-        close.addEventListener('click', () => {
-            insta.removeEventListener('click', instagram);
-            heart.removeEventListener('click', likeHeart);
-            dialog.close();
-        });
-    })
-    
 }
+
+createTiles();
     /*
     tile.addEventListener('click', () => {
         if(tile.classList.contains('clicked')) {
@@ -204,26 +201,20 @@ for (let store of stores) {
     });
     */
 
-
-
 // Get all the tiles
 let tiles = Array.from(document.querySelectorAll('.tile'));
 
 function sortItems(criteria) {
     if(criteria === 'Name'){
         // Sort the tiles based on their text content
-        tiles.sort((a, b) => {
-            let textA = a.querySelector('.text').textContent.toLowerCase();
-            let textB = b.querySelector('.text').textContent.toLowerCase();
-            return textA.localeCompare(textB);
-        });
+        stores.sort((a, b) => a.name.localeCompare(b.name));
+
         // Remove existing tiles from the food container
         food.innerHTML = '';
 
         // Append the sorted tiles back to the food container
-        tiles.forEach(tile => {
-            food.appendChild(tile);
-        });
+        createTiles();
+
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
 
@@ -259,34 +250,30 @@ const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
 
 function display(){
-for(let key of array) {
-    let cube = document.createElement('div');
-    cube.classList = 'album';
-    cube.textContent = key;
-    test.appendChild(cube);
-    cube.addEventListener('click', selectedElement.bind(null, key));
-    
-    //removed eventlistener from loop
-    /*
-    cube.addEventListener('click', () => {
-        //get index of clicked element
-        let choice = array.indexOf(key);
-        console.log(choice);
-        //remove clicked element from array
-        let selected = array.splice(choice, 1);
-        console.log(selected);
-        //add selected element to beginning of array, shifting array elements by +1
-        array.unshift(`${selected}`);
-        console.log(array);
-    })
-    */
-}
+    for(let key of array) {
+        let cube = document.createElement('div');
+        cube.classList = 'album';
+        cube.textContent = key;
+        test.appendChild(cube);
+        cube.addEventListener('click', selectedElement.bind(null, key));
+
+        //removed eventlistener from loop
+        /*
+        cube.addEventListener('click', () => {
+            //get index of clicked element
+            let choice = array.indexOf(key);
+            console.log(choice);
+            //remove clicked element from array
+            let selected = array.splice(choice, 1);
+            console.log(selected);
+            //add selected element to beginning of array, shifting array elements by +1
+            array.unshift(`${selected}`);
+            console.log(array);
+        })
+        */
+    }
 }
 display();
-
-//let albums = Array.from(document.querySelectorAll('.album'));
-let albums = document.querySelectorAll('.album');
-console.log(albums);
 
 function selectedElement(key) {
     let choice = array.indexOf(key);
