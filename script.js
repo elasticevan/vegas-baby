@@ -265,11 +265,10 @@ for(let key of array) {
     cube.addEventListener('click', () => {
         let choice = array.indexOf(key);
         console.log(choice);
-        let selected = array.slice(choice);
+        let selected = array.splice(choice, 1);
+        console.log(selected);
         array.unshift(selected);
-        console.log(array)
-
-
+        console.log(array);
     })
 }
 

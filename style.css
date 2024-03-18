@@ -169,6 +169,7 @@ iframe {
     display: flex;
     gap: 3em;
     padding: 3em;
+    flex-wrap: wrap;
 }
 
 /*
