@@ -165,11 +165,10 @@ function createTiles() {
             close.addEventListener('click', () => {
                 insta.removeEventListener('click', instagram);
                 heart.removeEventListener('click', likeHeart);
-                dialog.close();
                 content.style.filter = '';
+                dialog.close();
             });
         })
-
     }
 }
 
@@ -205,7 +204,7 @@ let tiles = Array.from(document.querySelectorAll('.tile'));
 
 function sortItems(criteria) {
     if(criteria === 'Name'){
-        // Sort the tiles based on their text content
+        // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
 
         // Remove existing tiles from the food container
@@ -245,6 +244,7 @@ input.addEventListener('input', event => {
 });
 
 //array tests
+
 const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
 
@@ -254,33 +254,26 @@ function display(){
         cube.classList = 'album';
         cube.textContent = key;
         test.appendChild(cube);
+        
+        //The bind() method is used to bind the key value to the selectedElement function. 
+        //This ensures that the key value is passed as an argument to the selectedElement function when the event is triggered.
         cube.addEventListener('click', selectedElement.bind(null, key));
-
-        //removed eventlistener from loop
-        /*
-        cube.addEventListener('click', () => {
-            //get index of clicked element
-            let choice = array.indexOf(key);
-            console.log(choice);
-            //remove clicked element from array
-            let selected = array.splice(choice, 1);
-            console.log(selected);
-            //add selected element to beginning of array, shifting array elements by +1
-            array.unshift(`${selected}`);
-            console.log(array);
-        })
-        */
     }
 }
+
 display();
 
 function selectedElement(key) {
+    //get index of selected element
     let choice = array.indexOf(key);
     console.log(choice);
+    //remove selected element from array
     let selected = array.splice(choice, 1);
     console.log(selected);
+    //add selected element to front of array, shift rest of array +1
     array.unshift(`${selected}`);
     console.log(array);
+    //clear test content to replace with updated array
     test.innerHTML = '';
     display();
 
