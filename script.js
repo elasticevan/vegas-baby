@@ -1,7 +1,4 @@
 // JS for Vegas
-
-
-
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 
@@ -17,6 +14,7 @@ grub.addEventListener('click', () => {
     mapView.style.opacity = 1;
     mapView.style.pointerEvents = "all";
 })
+
 mapView.addEventListener('click', e => {
     content.style.display = "none";
     fullMap.style.display = "block";
@@ -68,10 +66,9 @@ let stores = [
     {name: "un poko crazy", image: "https://tinyurl.com/26d5rqgj", insta: "https://www.instagram.com/unpokokrazy/", location: "https://tinyurl.com/2xwyrdv8"},
     {name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
     {name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
-
 ]
 
- 
+
 // Create modal outside of loop
 let dialog = document.createElement('dialog');
 let maps = document.createElement('iframe');
@@ -105,8 +102,8 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
-//objects use for...in vs arrays who use for...of
 
+//objects use for...in vs arrays who use for...of
 function createTiles() {
     for (let store of stores) {
         // Create tile
@@ -157,6 +154,7 @@ function createTiles() {
             };
             maps.src = store.location;
             dialog.showModal();
+            content.style.filter = 'blur(3px)';
         
             // Event listener for insta link
             insta.addEventListener('click', instagram);
@@ -168,6 +166,7 @@ function createTiles() {
                 insta.removeEventListener('click', instagram);
                 heart.removeEventListener('click', likeHeart);
                 dialog.close();
+                content.style.filter = '';
             });
         })
 
