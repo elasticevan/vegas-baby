@@ -65,7 +65,10 @@ option,
     color: rgb(30,139,195);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
+}
 
+.find input{
+    width: 10em;
 }
 
 .tabs .grubhub{

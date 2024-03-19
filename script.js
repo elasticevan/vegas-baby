@@ -68,6 +68,7 @@ let stores = [
     {name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
 ]
 
+stores.sort((a, b) => a.name.localeCompare(b.name));
 
 // Create modal outside of loop
 let dialog = document.createElement('dialog');
@@ -206,13 +207,15 @@ function sortItems(criteria) {
     if(criteria === 'Name'){
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
+        tiles.forEach(tile => {tile.style.display = ''})
 
+        /*
         // Remove existing tiles from the food container
         food.innerHTML = '';
 
         // Append the sorted tiles back to the food container
         createTiles();
-
+        */
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
 
