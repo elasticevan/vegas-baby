@@ -3,8 +3,8 @@ const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 
 const grub = document.querySelector('.grubhub');
-const mapView = document.querySelector('.mapview')
-const fullMap = document.querySelector('.fullMap')
+const mapView = document.querySelector('.mapview');
+const fullMap = document.querySelector('.fullMap');
 
 grub.addEventListener('click', () => {
     fullMap.style.display = "none";
@@ -281,3 +281,11 @@ function selectedElement(key) {
     display();
 
 }
+const grid = document.querySelector('.grid');
+grid.addEventListener('click', () => {
+    grid.classList.add('clicked');
+    tiles.forEach(tile => {
+        tile.style.width = '2px';
+        tile.style.height = '10px';
+    })
+})

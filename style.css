@@ -42,6 +42,7 @@ body {
 
 .grid img{
     width: 2em;
+    cursor: pointer;
 }
 
 .left {
