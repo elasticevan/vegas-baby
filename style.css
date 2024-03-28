@@ -29,6 +29,21 @@ body {
     gap: 1em;
 }
 
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 205, 186);
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
+    border-radius: 5px;
+    padding: 3px;
+    gap: 6px;
+}
+
+.grid img{
+    width: 2em;
+}
+
 .left {
     display: flex;
     flex-direction: column;
