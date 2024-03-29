@@ -210,6 +210,8 @@ gridView.addEventListener('click', () => {
     if (gridView.classList.contains('clicked')) {
         gridView.classList.remove('clicked');
         gridImg.src = './images/grid.png';
+        food.style.gap = '10px';
+        food.style.padding = '2em';
         tiles.forEach(tile => {
             tile.classList.remove('clicked');
         })
@@ -225,6 +227,8 @@ gridView.addEventListener('click', () => {
             text.style.fontSize = '1.5em';
         })
         gridImg.src = './images/square.png';
+        food.style.gap = '5px';
+        food.style.padding = '1em';
     }
 })
 
