@@ -29,7 +29,7 @@ body {
     gap: 1em;
 }
 
-.gridView {
+.grid {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ body {
     gap: 6px;
 }
 
-.gridView img{
+.grid img{
     width: 2em;
     cursor: pointer;
 }
@@ -127,7 +127,7 @@ option,
     flex-direction: column;
 }
 
-.tile.clicked{
+.tile.gridView{
     position: relative;
     border: 5px solid rgb(255, 222, 222);
     width: 6em;

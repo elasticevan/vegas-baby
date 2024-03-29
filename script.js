@@ -203,25 +203,29 @@ createTiles();
 // Get all the tiles
 let tiles = Array.from(document.querySelectorAll('.tile'));
 let storeNames = document.querySelectorAll('.text');
-const gridView = document.querySelector('.gridView');
-const gridImg = document.querySelector('.gridView img');
+let tileImg = document.querySelectorAll('.tile img');
+const grid = document.querySelector('.grid');
+const gridImg = document.querySelector('.grid img');
 
-gridView.addEventListener('click', () => {
-    if (gridView.classList.contains('clicked')) {
-        gridView.classList.remove('clicked');
+grid.addEventListener('click', () => {
+    if (grid.classList.contains('clicked')) {
+        grid.classList.remove('clicked');
         gridImg.src = './images/grid.png';
         food.style.gap = '10px';
         food.style.padding = '2em';
         tiles.forEach(tile => {
-            tile.classList.remove('clicked');
+            tile.classList.remove('gridView');
         })
         storeNames.forEach(text => {
             text.style.fontSize = '3em';
         })
+        tileImg.forEach(img => {
+            img.style.width = '';
+        })
     } else {
-        gridView.classList.add('clicked');
+        grid.classList.add('clicked');
         tiles.forEach(tile => {
-            tile.classList.add('clicked')
+            tile.classList.add('gridView')
         })
         storeNames.forEach(text => {
             text.style.fontSize = '1.5em';
@@ -229,6 +233,9 @@ gridView.addEventListener('click', () => {
         gridImg.src = './images/square.png';
         food.style.gap = '5px';
         food.style.padding = '1em';
+        tileImg.forEach(img => {
+            img.style.width = '20em';
+        })
     }
 })
 
