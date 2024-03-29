@@ -49,7 +49,7 @@ let stores = [
     {name: "morning news", image: "https://tinyurl.com/2yw32fp2", insta: "https://www.instagram.com/morningnews.lv/?hl=en", location: "https://tinyurl.com/2a44wydg"},
     {name: "yomie catch u", image: "https://tinyurl.com/2ydqkcbt", insta: "https://www.instagram.com/yomie_catch_u/", location: "https://tinyurl.com/26a33y3m"},
     {name: "pink duck", image: "https://tinyurl.com/29mzsfg4", insta: "https://www.instagram.com/pinkduckkitchen/?hl=en/", location: "https://tinyurl.com/23rtm7h7"},
-    {name: "cafe 86", image: "https://tinyurl.com/29cacn3b", insta: "https://www.instagram.com/cafe_86vegas/", location: "https://tinyurl.com/25ryzvhd"},
+    {name: "cafe 86", image: "https://tinyurl.com/29cacn3b", insta: "https://www.instagram.com/cafe86_lasvegas/", location: "https://tinyurl.com/25ryzvhd"},
     {name: "gabbi coffee", image: "https://tinyurl.com/2c26tj84", insta: "https://www.instagram.com/gabicoffeebakery/", location: "https://tinyurl.com/24tjse99"},
     {name: "arte museum", image: "https://tinyurl.com/2bmky8rn", insta: "https://www.instagram.com/artemuseum_lasvegas/", location: "https://tinyurl.com/24ejypgy"},
     {name: "mama pam thai", image: "https://tinyurl.com/24tt9rxe", insta: "https://www.instagram.com/mamapamlv/", location: "https://tinyurl.com/2cmakqvn"},
@@ -201,41 +201,30 @@ createTiles();
     */
 
 // Get all the tiles
-let tiles = Array.from(document.querySelectorAll('.tile'));
-let storeNames = document.querySelectorAll('.text');
-let tileImg = document.querySelectorAll('.tile img');
+const tiles = Array.from(document.querySelectorAll('.tile'));
+const storeNames = document.querySelectorAll('.text');
+const tileImg = document.querySelectorAll('.tile img');
 const grid = document.querySelector('.grid');
 const gridImg = document.querySelector('.grid img');
 
 grid.addEventListener('click', () => {
     if (grid.classList.contains('clicked')) {
         grid.classList.remove('clicked');
+        gridImg.classList.remove('clicked');
         gridImg.src = './images/grid.png';
         food.style.gap = '10px';
         food.style.padding = '2em';
-        tiles.forEach(tile => {
-            tile.classList.remove('gridView');
-        })
-        storeNames.forEach(text => {
-            text.style.fontSize = '3em';
-        })
-        tileImg.forEach(img => {
-            img.style.width = '';
-        })
+        tiles.forEach(tile => {tile.classList.remove('gridView')});
+        storeNames.forEach(text => {text.style.fontSize = '3em'});
+        tileImg.forEach(img => {img.style.width = ''});
     } else {
         grid.classList.add('clicked');
-        tiles.forEach(tile => {
-            tile.classList.add('gridView')
-        })
-        storeNames.forEach(text => {
-            text.style.fontSize = '1.5em';
-        })
-        gridImg.src = './images/square.png';
+        gridImg.classList.add('clicked');
         food.style.gap = '5px';
         food.style.padding = '1em';
-        tileImg.forEach(img => {
-            img.style.width = '20em';
-        })
+        tiles.forEach(tile => {tile.classList.add('gridView')});
+        storeNames.forEach(text => {text.style.fontSize = '1.5em'});
+        tileImg.forEach(img => {img.style.width = '20em'});
     }
 })
 
@@ -281,9 +270,9 @@ input.addEventListener('input', event => {
         }
     });
 });
+/*
 
 //array tests
-
 const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
 
@@ -318,3 +307,4 @@ function selectedElement(key) {
 
 }
 
+*/

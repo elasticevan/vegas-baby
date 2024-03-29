@@ -44,6 +44,14 @@ body {
     width: 2em;
     cursor: pointer;
 }
+
+.grid img.clicked {
+    content: url('./images/square.png');
+    width: 1.5em;
+    margin: 0.25em;
+    cursor: pointer;
+}
+
 .left {
     display: flex;
     flex-direction: column;
