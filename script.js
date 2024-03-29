@@ -202,6 +202,31 @@ createTiles();
 
 // Get all the tiles
 let tiles = Array.from(document.querySelectorAll('.tile'));
+let storeNames = document.querySelectorAll('.text');
+const gridView = document.querySelector('.gridView');
+const gridImg = document.querySelector('.gridView img');
+
+gridView.addEventListener('click', () => {
+    if (gridView.classList.contains('clicked')) {
+        gridView.classList.remove('clicked');
+        gridImg.src = './images/grid.png';
+        tiles.forEach(tile => {
+            tile.classList.remove('clicked');
+        })
+        storeNames.forEach(text => {
+            text.style.fontSize = '3em';
+        })
+    } else {
+        gridView.classList.add('clicked');
+        tiles.forEach(tile => {
+            tile.classList.add('clicked')
+        })
+        storeNames.forEach(text => {
+            text.style.fontSize = '1.5em';
+        })
+        gridImg.src = './images/square.png';
+    }
+})
 
 function sortItems(criteria) {
     if(criteria === 'Name'){
@@ -281,11 +306,4 @@ function selectedElement(key) {
     display();
 
 }
-const grid = document.querySelector('.grid');
-grid.addEventListener('click', () => {
-    grid.classList.add('clicked');
-    tiles.forEach(tile => {
-        tile.style.width = '2px';
-        tile.style.height = '10px';
-    })
-})
+

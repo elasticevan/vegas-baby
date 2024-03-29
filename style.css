@@ -29,7 +29,7 @@ body {
     gap: 1em;
 }
 
-.grid {
+.gridView {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,11 +40,10 @@ body {
     gap: 6px;
 }
 
-.grid img{
+.gridView img{
     width: 2em;
     cursor: pointer;
 }
-
 .left {
     display: flex;
     flex-direction: column;
@@ -122,6 +121,18 @@ option,
     height: 20em;
     width: 15em;
     border-radius: 3em;
+    overflow: hidden;
+    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.tile.clicked{
+    position: relative;
+    border: 5px solid rgb(255, 222, 222);
+    width: 6em;
+    height: 10em;
+    border-radius: 1.5em;
     overflow: hidden;
     box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
     cursor: pointer;
