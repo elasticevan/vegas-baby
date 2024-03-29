@@ -5,6 +5,7 @@ body {
     border: 0;
     display: flex;
     flex-direction: column;
+    background-color: rgb(255, 205, 186);
 }
 
 .header,
@@ -126,25 +127,24 @@ option,
 .tile {
     position: relative;
     border: 10px solid rgb(255, 222, 222);
-    height: 20em;
     width: 15em;
+    height: 20em;
     border-radius: 3em;
     overflow: hidden;
-    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
     cursor: pointer;
     flex-direction: column;
 }
 
-.tile.gridView{
-    position: relative;
+.tile.gridView {
     border: 5px solid rgb(255, 222, 222);
     width: 6em;
     height: 10em;
     border-radius: 1.5em;
-    overflow: hidden;
-    box-shadow: 1px 1px 2px rgb(0, 0, 0, .7);
-    cursor: pointer;
-    flex-direction: column;
+}
+
+.tile.clicked {
+    border-color: rgb(252, 115, 93);
 }
 
 .text {

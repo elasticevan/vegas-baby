@@ -103,7 +103,7 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
-
+let tile;
 //objects use for...in vs arrays who use for...of
 function createTiles() {
     for (let store of stores) {
@@ -141,11 +141,22 @@ function createTiles() {
                 tile.classList.remove('clicked');
             } else {
                 heart.innerHTML = heartFull;
-                tile.style.borderColor = 'rgb(252,115,93)';
                 tile.classList.add('clicked');
             }
         }
+        /*
+        function saveData(){
+            localStorage.setItem("favorite", tile.classList);
+        }
+        
+        function showTask(){
+            tile.classList = localStorage.getItem("favorite");
+        }
 
+        saveData();
+        showTask();
+        */
+       
         // Event listener for opening dialog on tile click
         tile.addEventListener('click', () => {
             if(tile.classList.contains('clicked')) {
@@ -162,6 +173,7 @@ function createTiles() {
             // Event listener for toggling like feature
             heart.addEventListener('click', likeHeart);
 
+            
             // Event listener for closing dialog
             close.addEventListener('click', () => {
                 insta.removeEventListener('click', instagram);
@@ -174,6 +186,7 @@ function createTiles() {
 }
 
 createTiles();
+
     /*
     tile.addEventListener('click', () => {
         if(tile.classList.contains('clicked')) {
@@ -233,18 +246,8 @@ function sortItems(criteria) {
     if(criteria === 'Name'){
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
- 
-
-        /*
-        // Remove existing tiles from the food container
-        food.innerHTML = '';
-
-        // Append the sorted tiles back to the food container
-        createTiles();
-        */
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
-
         // Loop through tiles
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
