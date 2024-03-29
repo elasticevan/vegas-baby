@@ -26,7 +26,7 @@ body {
 .tabs {
     background-color: rgb(255, 222, 222);
     height: 2em;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .grid {

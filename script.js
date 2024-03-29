@@ -229,10 +229,11 @@ grid.addEventListener('click', () => {
 })
 
 function sortItems(criteria) {
+    tiles.forEach(tile => {tile.style.display = ''})
     if(criteria === 'Name'){
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
-        tiles.forEach(tile => {tile.style.display = ''})
+ 
 
         /*
         // Remove existing tiles from the food container
