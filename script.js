@@ -251,8 +251,12 @@ function sortItems(criteria) {
                 tile.style.display = 'none';
             }
         });
-    } else if (criteria === "Most Popular") {
-        tiles.forEach(tile => {tile.style.display = ''})   
+    } else if (criteria === "Faves") {
+        tiles.forEach(tile => {
+            if(!tile.classList.contains('clicked')) {
+                tile.style.display = 'none'
+            }
+        })
     }
     
 }
