@@ -105,8 +105,8 @@ food.appendChild(dialog);
 
 let tile;
 //objects use for...in vs arrays who use for...of
+
 function createTiles() {
-    showTask();
     for (let store of stores) {
         // Create tile
         let tile = document.createElement('div');
@@ -182,10 +182,13 @@ function createTiles() {
     // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
     
 }
+const serializedObject = localStorage.getItem('fave');
+        
+// Deserialize the object from the JSON string
+const deserializedObject = JSON.parse(serializedObject);
+stores = deserializedObject
 createTiles();
-function showTask(){
-    JSON.parse(localStorage.getItem('fave'));
-}
+
 
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
