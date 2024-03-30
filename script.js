@@ -67,7 +67,7 @@ let stores = [
     {name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
     {name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
 ]
-
+stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
 
 // Create modal outside of loop
@@ -104,8 +104,8 @@ dialog.appendChild(socials);
 food.appendChild(dialog);
 
 let tile;
-//objects use for...in vs arrays who use for...of
 
+//objects use for...in vs arrays who use for...of
 function createTiles() {
     for (let store of stores) {
         // Create tile
@@ -182,27 +182,31 @@ function createTiles() {
     // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
     
 }
-const serializedObject = localStorage.getItem('fave');
+console.log(stores)
+let storeObj= localStorage.getItem('fave');
         
 // Deserialize the object from the JSON string
-const deserializedObject = JSON.parse(serializedObject);
-stores = deserializedObject
+let newObj = JSON.parse(storeObj);
+function storesData() {
+    let obj = '';
+    stores.forEach(store => {
+        if(store.favorite === 'yes') {
+            obj = newObj;  
+        } else {
+            obj = stores;
+        } 
+    })
+    return obj;
+}
+
+stores = storesData();
+console.log(stores)
 createTiles();
 
 
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
 
-
-/*
-function saveData(){
-    localStorage.setItem("fave", tile.classList);
-}
-
-function showTask(){
-    tiles = localStorage.getItem("fave");
-}
-*/
 const storeNames = document.querySelectorAll('.text');
 const tileImg = document.querySelectorAll('.tile img');
 const grid = document.querySelector('.grid');
