@@ -144,7 +144,7 @@ function createTiles() {
             } else {
                 heart.innerHTML = heartFull;
                 tile.classList.add('clicked');
-                store.favorite = 'yes'
+                store.favorite = 'yes';
             }
         }
         
@@ -182,20 +182,13 @@ function createTiles() {
     // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
     
 }
-console.log(stores)
+
 let storeObj= localStorage.getItem('fave');
         
 // Deserialize the object from the JSON string
 let newObj = JSON.parse(storeObj);
 function storesData() {
-    let obj = '';
-    stores.forEach(store => {
-        if(store.favorite === 'yes') {
-            obj = newObj;  
-        } else {
-            obj = stores;
-        } 
-    })
+    let obj = (newObj === null) ? stores : newObj;
     return obj;
 }
 
