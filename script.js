@@ -106,13 +106,14 @@ food.appendChild(dialog);
 let tile;
 //objects use for...in vs arrays who use for...of
 function createTiles() {
+    showTask();
     for (let store of stores) {
         // Create tile
         let tile = document.createElement('div');
         tile.classList.add('tile');
-
-        //likely unnecessary to declare but idk
-        let tiles = Array.from(document.querySelectorAll('.tile'));
+        if(store.favorite === 'yes') {
+            tile.classList.add('clicked');
+        }
 
         // Create image element
         let img = document.createElement('img');
@@ -139,24 +140,18 @@ function createTiles() {
             if(tile.classList.contains('clicked')) {
                 heart.innerHTML = heartEmpty;
                 tile.classList.remove('clicked');
+                store.favorite = '';
             } else {
                 heart.innerHTML = heartFull;
                 tile.classList.add('clicked');
+                store.favorite = 'yes'
             }
         }
-        /*
+        
         function saveData(){
-            localStorage.setItem("favorite", tile.classList);
+            localStorage.setItem('fave', JSON.stringify(stores));
         }
         
-        function showTask(){
-            tile.classList = localStorage.getItem("favorite");
-        }
-
-        saveData();
-        showTask();
-        */
-       
         // Event listener for opening dialog on tile click
         tile.addEventListener('click', () => {
             if(tile.classList.contains('clicked')) {
@@ -167,7 +162,6 @@ function createTiles() {
             maps.src = store.location;
             dialog.showModal();
             content.style.filter = 'blur(3px)';
-        
             // Event listener for insta link
             insta.addEventListener('click', instagram);
             // Event listener for toggling like feature
@@ -179,42 +173,33 @@ function createTiles() {
                 insta.removeEventListener('click', instagram);
                 heart.removeEventListener('click', likeHeart);
                 content.style.filter = '';
+                saveData();
                 dialog.close();
             });
         })
     }
-}
-
-createTiles();
-
-    /*
-    tile.addEventListener('click', () => {
-        if(tile.classList.contains('clicked')) {
-            heart.innerHTML = heartFull;
-        } else {
-            heart.innerHTML = heartEmpty;
-        };
-
-        maps.src = store.location;
-        dialog.showModal();
-
-        // Event listener for insta link
-        insta.addEventListener('click', instagram);
-        // Event listener for toggling like feature
-        heart.addEventListener('click', likeHeart);
-
-        // Event listener for closing dialog
-        close.addEventListener('click', () => {
-            insta.removeEventListener('click', instagram);
-            heart.removeEventListener('click', likeHeart);
-            dialog.close();
-        });
+    // everytime heart is clicked, adds 'clicked' to classList of tile element. save tile
+    // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
     
-    });
-    */
+}
+createTiles();
+function showTask(){
+    JSON.parse(localStorage.getItem('fave'));
+}
 
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
+
+
+/*
+function saveData(){
+    localStorage.setItem("fave", tile.classList);
+}
+
+function showTask(){
+    tiles = localStorage.getItem("fave");
+}
+*/
 const storeNames = document.querySelectorAll('.text');
 const tileImg = document.querySelectorAll('.tile img');
 const grid = document.querySelector('.grid');
@@ -262,7 +247,6 @@ function sortItems(criteria) {
             }
         })
     }
-    
 }
 
 const input = document.querySelector('input');
@@ -278,8 +262,8 @@ input.addEventListener('input', event => {
         }
     });
 });
-/*
 
+/*
 //array tests
 const test = document.querySelector('.test');
 const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
@@ -314,5 +298,18 @@ function selectedElement(key) {
     display();
 
 }
-
 */
+
+//object tests
+let pokemon = [
+    {name: 'squirtle', type: 'water'},
+    {name: 'bulbasaur', type: 'leaf'},
+    {name: 'pikachu', type: 'electric'},
+    {name: 'charmander', type: 'fire'}
+]
+
+
+for (let mon of pokemon) {
+    mon.level = "Level 5";
+}
+
