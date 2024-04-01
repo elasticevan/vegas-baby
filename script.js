@@ -26,6 +26,7 @@ mapView.addEventListener('click', e => {
 })
 
 let stores = [
+    //vegas
     {city: "vegas", name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/yk7u5eo5"},
     {city: "vegas", name: "raising canes", image: "./images/chicken.webp", insta: "https://tinyurl.com/23fmbwot", location: "https://tinyurl.com/2xqmxwl3"},
     {city: "vegas", name: "sbarro", image: "./images/turtlepower.png", insta: "https://tinyurl.com/22chcba8", location: "https://tinyurl.com/237e8dha"},
@@ -66,6 +67,8 @@ let stores = [
     {city: "vegas", name: "un poko crazy", image: "https://tinyurl.com/26d5rqgj", insta: "https://www.instagram.com/unpokokrazy/", location: "https://tinyurl.com/2xwyrdv8"},
     {city: "vegas", name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
     {city: "vegas", name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
+    //chicago
+    {city: "chicago", name: "the bear", image: "https://tinyurl.com/2c9ba2bh", insta: "https://tinyurl.com/qekphz", location: "https://tinyurl.com/238cn6jy"},
 ]
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
@@ -104,7 +107,6 @@ dialog.appendChild(socials);
 food.appendChild(dialog);
 
 let tile;
-let city;
 //objects use for...in vs arrays who use for...of
 function createTiles() {
     for (let store of stores) {
@@ -114,6 +116,7 @@ function createTiles() {
         if(store.favorite === 'yes') {
             tile.classList.add('clicked');
         }
+        tile.textContent = store.city;
 
         // Create image element
         let img = document.createElement('img');
@@ -125,10 +128,6 @@ function createTiles() {
         text.classList.add('text');
         text.textContent = store.name;
         tile.appendChild(text);
-
-        city = document.createElement('span');
-        city.classList.add('city');
-        city.textContent = store.city
 
         // Append tile to food container
         food.appendChild(tile);
@@ -273,24 +272,19 @@ vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
     chicago.classList.remove('clicked');
     tiles.forEach(tile => {
-        tile.style.display = (city.textContent === 'vegas') ? '' : 'none'; 
+        tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
+       
     })
 })
 chicago.addEventListener('click', () => {
     chicago.classList.add('clicked')
     vegas.classList.remove('clicked');
     tiles.forEach(tile => {
-        tile.style.display = (city.textContent === 'chicago') ? '' : 'none'; 
+        tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
+       
     })
 })
 
-tiles.forEach(tile => {
-    if(chicago.classList.contains('clicked')){
-        tile.style.display = (city.textContent === 'vegas') ? 'none' : '';
-    } else if(vegas.classList.contains('clicked')) {
-        tile.style.display = (city.textContent === 'chicago') ? 'none' : '';
-    }
-})
 /*
 //array tests
 const test = document.querySelector('.test');

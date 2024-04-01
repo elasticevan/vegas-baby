@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 205, 186);
+    width: fit-content;
 }
 
 .header,
@@ -44,7 +45,9 @@ body {
 
 }
 
-
+.city{
+    display: '';
+}
 
 .tabs {
     background-color: rgb(255, 222, 222);
