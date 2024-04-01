@@ -68,7 +68,7 @@ let stores = [
     {city: "vegas", name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
     {city: "vegas", name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
     //chicago
-    {city: "chicago", name: "the bear", image: "https://tinyurl.com/2c9ba2bh", insta: "https://tinyurl.com/qekphz", location: "https://tinyurl.com/238cn6jy"},
+    {city: "chicago", name: "the bear", image: "https://tinyurl.com/2c9ba2bh", insta: "https://www.instagram.com/mr.beefchicago/", location: "https://tinyurl.com/2a678v3f"},
 ]
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
