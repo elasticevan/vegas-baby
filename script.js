@@ -1,4 +1,5 @@
 // JS for Vegas
+localStorage.clear();
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 
