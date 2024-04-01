@@ -26,46 +26,46 @@ mapView.addEventListener('click', e => {
 })
 
 let stores = [
-    {name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/yk7u5eo5"},
-    {name: "raising canes", image: "./images/chicken.webp", insta: "https://tinyurl.com/23fmbwot", location: "https://tinyurl.com/2xqmxwl3"},
-    {name: "sbarro", image: "./images/turtlepower.png", insta: "https://tinyurl.com/22chcba8", location: "https://tinyurl.com/237e8dha"},
-    {name: "empanada factory", image: "https://tinyurl.com/2a69st3j", insta: "https://www.instagram.com/empanada.factorylv/?hl=en", location: "https://tinyurl.com/24hlko2g"},
-    {name: "mango mango", image: "https://tinyurl.com/2yyxgp32", insta: "https://www.instagram.com/mangomango.lasvegas/", location: "http://tinyurl.com/2xwwaq48"},
-    {name: "zippy's", image: "http://tinyurl.com/23de4unp", insta: "https://www.instagram.com/zippys/", location: "http://tinyurl.com/25e39aof"}, 
-    {name: "ton shou", image: "https://tinyurl.com/23o6vtkv", insta: "https://www.instagram.com/tonshoulv/", location: "https://tinyurl.com/22sfv2p9"},
-    {name: "purple potato", image: "http://tinyurl.com/242lhv4y", insta: "https://www.instagram.com/purplepotatolv/", location: "https://tinyurl.com/26249kep"},
-    {name: "303", image: "https://tinyurl.com/263c63ku", insta: "https://www.instagram.com/303inthecut/?hl=en", location: "https://tinyurl.com/2xpa6b2q"},
-    {name: "yo mochi", image: "https://tinyurl.com/2897tu2r", insta: "https://www.instagram.com/yomochiusa/?hl=en", location: "https://tinyurl.com/26gz9vpv"},
-    {name: "pappa roti", image: "https://tinyurl.com/28l8faku", insta: "https://www.instagram.com/papparotilasvegas/", location: "https://tinyurl.com/2bx6uuut"},
-    {name: "cheong- dam hall", image: "https://tinyurl.com/29j2ghxh", insta: "https://www.instagram.com/cheongdamfoodhall/?hl=en", location: "https://tinyurl.com/245dtflh"},
-    {name: "all' antico vinaio", image: "https://tinyurl.com/22nt93qk", insta: "https://www.instagram.com/allanticovinaiolv/", location: "https://tinyurl.com/2yzrj34w"},
-    {name: "taste budz creole", image: "https://tinyurl.com/25zoqz4h", insta: "https://www.instagram.com/tastebudzlv/", location: "https://tinyurl.com/22gzet6r"},
-    {name: "fukuya market", image: "https://tinyurl.com/25cfxmdd", insta: "https://www.instagram.com/fukuyalasvegas/", location: "https://tinyurl.com/2av6pje7"},
-    {name: "kushi bbq", image: "https://tinyurl.com/2439or67", insta: "https://www.instagram.com/kushibbq/?hl=en", location: "https://tinyurl.com/2a678v3f"},
-    {name: "farm basket", image: "https://tinyurl.com/27de2z2o", insta: "https://www.instagram.com/farmbasketlv/", location: "https://tinyurl.com/26am493q"},
-    {name: "matiki island", image: "https://tinyurl.com/28wjfqgs", insta: "https://www.instagram.com/matikiislandbbq/?hl=en", location: "https://tinyurl.com/24s5l4g2"},
-    {name: "ole churros", image: "https://tinyurl.com/2y7xnu5e", insta: "https://www.instagram.com/olechurroslv/", location: "https://tinyurl.com/2yhscgx6"},
-    {name: "sorry not sorry", image: "https://tinyurl.com/24mb6an4", insta: "https://www.instagram.com/sorrynotsorrycreamery/", location: "https://tinyurl.com/2dq3ktrq"},
-    {name: "morning news", image: "https://tinyurl.com/2yw32fp2", insta: "https://www.instagram.com/morningnews.lv/?hl=en", location: "https://tinyurl.com/2a44wydg"},
-    {name: "yomie catch u", image: "https://tinyurl.com/2ydqkcbt", insta: "https://www.instagram.com/yomie_catch_u/", location: "https://tinyurl.com/26a33y3m"},
-    {name: "pink duck", image: "https://tinyurl.com/29mzsfg4", insta: "https://www.instagram.com/pinkduckkitchen/?hl=en/", location: "https://tinyurl.com/23rtm7h7"},
-    {name: "cafe 86", image: "https://tinyurl.com/29cacn3b", insta: "https://www.instagram.com/cafe86_lasvegas/", location: "https://tinyurl.com/25ryzvhd"},
-    {name: "gabbi coffee", image: "https://tinyurl.com/2c26tj84", insta: "https://www.instagram.com/gabicoffeebakery/", location: "https://tinyurl.com/24tjse99"},
-    {name: "arte museum", image: "https://tinyurl.com/2bmky8rn", insta: "https://www.instagram.com/artemuseum_lasvegas/", location: "https://tinyurl.com/24ejypgy"},
-    {name: "mama pam thai", image: "https://tinyurl.com/24tt9rxe", insta: "https://www.instagram.com/mamapamlv/", location: "https://tinyurl.com/2cmakqvn"},
-    {name: "starbread bakery", image: "https://tinyurl.com/2c72a4mn", insta: "https://www.instagram.com/starbread_lasvegas/?hl=en", location: "https://tinyurl.com/2awcm2s6"},
-    {name: "palette dim sum", image: "https://tinyurl.com/22r4j9yz", insta: "https://www.instagram.com/palettetealounge/", location: "https://tinyurl.com/2yqp3zlz"},
-    {name: "sundry food hall", image: "https://tinyurl.com/2ytol3zg", insta: "https://www.instagram.com/thesundrylv/?hl=en", location: "https://tinyurl.com/28zxlqhm"},
-    {name: "lamalii thai", image: "https://tinyurl.com/2yu8lpwr", insta: "https://www.instagram.com/lamaiilv/", location: "https://tinyurl.com/27med5e5"},
-    {name: "calabash african kitchen", image: "https://tinyurl.com/2xkrt3yw", insta: "https://www.instagram.com/calabashafricankitchen/", location: "https://tinyurl.com/269pvs49"},
-    {name: "solamente pizza", image: "https://tinyurl.com/23ehv942", insta: "https://www.instagram.com/solamentepizzalv/", location: "https://tinyurl.com/23grzxb5"},
-    {name: "chill haus", image: "https://tinyurl.com/2cpz6nyr", insta: "https://www.instagram.com/chillhaus_lasvegas/?hl=en", location: "https://tinyurl.com/2733sq2b"},
-    {name: "partage", image: "https://tinyurl.com/22neybuv", insta: "https://www.instagram.com/partagelv/?hl=en", location: "https://tinyurl.com/28v8qm98"},
-    {name: "cafe laon (croffle)", image: "https://tinyurl.com/2xhwfdzh", insta: "https://www.instagram.com/cafelaonlv/", location: "https://tinyurl.com/232qhmbv"},
-    {name: "what's crepe", image: "https://tinyurl.com/23cvuam4", insta: "https://www.instagram.com/whats_crepe/?hl=en", location: "https://tinyurl.com/2cecrb9r"},
-    {name: "un poko crazy", image: "https://tinyurl.com/26d5rqgj", insta: "https://www.instagram.com/unpokokrazy/", location: "https://tinyurl.com/2xwyrdv8"},
-    {name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
-    {name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
+    {city: "vegas", name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/yk7u5eo5"},
+    {city: "vegas", name: "raising canes", image: "./images/chicken.webp", insta: "https://tinyurl.com/23fmbwot", location: "https://tinyurl.com/2xqmxwl3"},
+    {city: "vegas", name: "sbarro", image: "./images/turtlepower.png", insta: "https://tinyurl.com/22chcba8", location: "https://tinyurl.com/237e8dha"},
+    {city: "vegas", name: "empanada factory", image: "https://tinyurl.com/2a69st3j", insta: "https://www.instagram.com/empanada.factorylv/?hl=en", location: "https://tinyurl.com/24hlko2g"},
+    {city: "vegas", name: "mango mango", image: "https://tinyurl.com/2yyxgp32", insta: "https://www.instagram.com/mangomango.lasvegas/", location: "http://tinyurl.com/2xwwaq48"},
+    {city: "vegas", name: "zippy's", image: "http://tinyurl.com/23de4unp", insta: "https://www.instagram.com/zippys/", location: "http://tinyurl.com/25e39aof"}, 
+    {city: "vegas", name: "ton shou", image: "https://tinyurl.com/23o6vtkv", insta: "https://www.instagram.com/tonshoulv/", location: "https://tinyurl.com/22sfv2p9"},
+    {city: "vegas", name: "purple potato", image: "http://tinyurl.com/242lhv4y", insta: "https://www.instagram.com/purplepotatolv/", location: "https://tinyurl.com/26249kep"},
+    {city: "vegas", name: "303", image: "https://tinyurl.com/263c63ku", insta: "https://www.instagram.com/303inthecut/?hl=en", location: "https://tinyurl.com/2xpa6b2q"},
+    {city: "vegas", name: "yo mochi", image: "https://tinyurl.com/2897tu2r", insta: "https://www.instagram.com/yomochiusa/?hl=en", location: "https://tinyurl.com/26gz9vpv"},
+    {city: "vegas", name: "pappa roti", image: "https://tinyurl.com/28l8faku", insta: "https://www.instagram.com/papparotilasvegas/", location: "https://tinyurl.com/2bx6uuut"},
+    {city: "vegas", name: "cheong- dam hall", image: "https://tinyurl.com/29j2ghxh", insta: "https://www.instagram.com/cheongdamfoodhall/?hl=en", location: "https://tinyurl.com/245dtflh"},
+    {city: "vegas", name: "all' antico vinaio", image: "https://tinyurl.com/22nt93qk", insta: "https://www.instagram.com/allanticovinaiolv/", location: "https://tinyurl.com/2yzrj34w"},
+    {city: "vegas", name: "taste budz creole", image: "https://tinyurl.com/25zoqz4h", insta: "https://www.instagram.com/tastebudzlv/", location: "https://tinyurl.com/22gzet6r"},
+    {city: "vegas", name: "fukuya market", image: "https://tinyurl.com/25cfxmdd", insta: "https://www.instagram.com/fukuyalasvegas/", location: "https://tinyurl.com/2av6pje7"},
+    {city: "vegas", name: "kushi bbq", image: "https://tinyurl.com/2439or67", insta: "https://www.instagram.com/kushibbq/?hl=en", location: "https://tinyurl.com/2a678v3f"},
+    {city: "vegas", name: "farm basket", image: "https://tinyurl.com/27de2z2o", insta: "https://www.instagram.com/farmbasketlv/", location: "https://tinyurl.com/26am493q"},
+    {city: "vegas", name: "matiki island", image: "https://tinyurl.com/28wjfqgs", insta: "https://www.instagram.com/matikiislandbbq/?hl=en", location: "https://tinyurl.com/24s5l4g2"},
+    {city: "vegas", name: "ole churros", image: "https://tinyurl.com/2y7xnu5e", insta: "https://www.instagram.com/olechurroslv/", location: "https://tinyurl.com/2yhscgx6"},
+    {city: "vegas", name: "sorry not sorry", image: "https://tinyurl.com/24mb6an4", insta: "https://www.instagram.com/sorrynotsorrycreamery/", location: "https://tinyurl.com/2dq3ktrq"},
+    {city: "vegas", name: "morning news", image: "https://tinyurl.com/2yw32fp2", insta: "https://www.instagram.com/morningnews.lv/?hl=en", location: "https://tinyurl.com/2a44wydg"},
+    {city: "vegas", name: "yomie catch u", image: "https://tinyurl.com/2ydqkcbt", insta: "https://www.instagram.com/yomie_catch_u/", location: "https://tinyurl.com/26a33y3m"},
+    {city: "vegas", name: "pink duck", image: "https://tinyurl.com/29mzsfg4", insta: "https://www.instagram.com/pinkduckkitchen/?hl=en/", location: "https://tinyurl.com/23rtm7h7"},
+    {city: "vegas", name: "cafe 86", image: "https://tinyurl.com/29cacn3b", insta: "https://www.instagram.com/cafe86_lasvegas/", location: "https://tinyurl.com/25ryzvhd"},
+    {city: "vegas", name: "gabbi coffee", image: "https://tinyurl.com/2c26tj84", insta: "https://www.instagram.com/gabicoffeebakery/", location: "https://tinyurl.com/24tjse99"},
+    {city: "vegas", name: "arte museum", image: "https://tinyurl.com/2bmky8rn", insta: "https://www.instagram.com/artemuseum_lasvegas/", location: "https://tinyurl.com/24ejypgy"},
+    {city: "vegas", name: "mama pam thai", image: "https://tinyurl.com/24tt9rxe", insta: "https://www.instagram.com/mamapamlv/", location: "https://tinyurl.com/2cmakqvn"},
+    {city: "vegas", name: "starbread bakery", image: "https://tinyurl.com/2c72a4mn", insta: "https://www.instagram.com/starbread_lasvegas/?hl=en", location: "https://tinyurl.com/2awcm2s6"},
+    {city: "vegas", name: "palette dim sum", image: "https://tinyurl.com/22r4j9yz", insta: "https://www.instagram.com/palettetealounge/", location: "https://tinyurl.com/2yqp3zlz"},
+    {city: "vegas", name: "sundry food hall", image: "https://tinyurl.com/2ytol3zg", insta: "https://www.instagram.com/thesundrylv/?hl=en", location: "https://tinyurl.com/28zxlqhm"},
+    {city: "vegas", name: "lamalii thai", image: "https://tinyurl.com/2yu8lpwr", insta: "https://www.instagram.com/lamaiilv/", location: "https://tinyurl.com/27med5e5"},
+    {city: "vegas", name: "calabash african kitchen", image: "https://tinyurl.com/2xkrt3yw", insta: "https://www.instagram.com/calabashafricankitchen/", location: "https://tinyurl.com/269pvs49"},
+    {city: "vegas", name: "solamente pizza", image: "https://tinyurl.com/23ehv942", insta: "https://www.instagram.com/solamentepizzalv/", location: "https://tinyurl.com/23grzxb5"},
+    {city: "vegas", name: "chill haus", image: "https://tinyurl.com/2cpz6nyr", insta: "https://www.instagram.com/chillhaus_lasvegas/?hl=en", location: "https://tinyurl.com/2733sq2b"},
+    {city: "vegas", name: "partage", image: "https://tinyurl.com/22neybuv", insta: "https://www.instagram.com/partagelv/?hl=en", location: "https://tinyurl.com/28v8qm98"},
+    {city: "vegas", name: "cafe laon (croffle)", image: "https://tinyurl.com/2xhwfdzh", insta: "https://www.instagram.com/cafelaonlv/", location: "https://tinyurl.com/232qhmbv"},
+    {city: "vegas", name: "what's crepe", image: "https://tinyurl.com/23cvuam4", insta: "https://www.instagram.com/whats_crepe/?hl=en", location: "https://tinyurl.com/2cecrb9r"},
+    {city: "vegas", name: "un poko crazy", image: "https://tinyurl.com/26d5rqgj", insta: "https://www.instagram.com/unpokokrazy/", location: "https://tinyurl.com/2xwyrdv8"},
+    {city: "vegas", name: "hui lao shan", image: "https://tinyurl.com/2brnm3yp", insta: "https://www.instagram.com/huilaushanlv/?hl=en", location: "https://tinyurl.com/23kcvand"},
+    {city: "vegas", name: "tora katsu", image: "https://tinyurl.com/24r9nua9", insta: "https://www.instagram.com/torakatsulv/", location: "https://tinyurl.com/22tmt7k3"},
 ]
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
@@ -104,7 +104,7 @@ dialog.appendChild(socials);
 food.appendChild(dialog);
 
 let tile;
-
+let city;
 //objects use for...in vs arrays who use for...of
 function createTiles() {
     for (let store of stores) {
@@ -121,11 +121,14 @@ function createTiles() {
         tile.appendChild(img);
 
         // Create text span
-        text = document.createElement('span');
+        let text = document.createElement('span');
         text.classList.add('text');
         text.textContent = store.name;
         tile.appendChild(text);
 
+        city = document.createElement('span');
+        city.classList.add('city');
+        city.textContent = store.city
 
         // Append tile to food container
         food.appendChild(tile);
@@ -263,6 +266,31 @@ input.addEventListener('input', event => {
     });
 });
 
+const vegas = document.querySelector('.vegas');
+const chicago = document.querySelector('.chicago');
+
+vegas.addEventListener('click', () => {
+    vegas.classList.add('clicked');
+    chicago.classList.remove('clicked');
+    tiles.forEach(tile => {
+        tile.style.display = (city.textContent === 'vegas') ? '' : 'none'; 
+    })
+})
+chicago.addEventListener('click', () => {
+    chicago.classList.add('clicked')
+    vegas.classList.remove('clicked');
+    tiles.forEach(tile => {
+        tile.style.display = (city.textContent === 'chicago') ? '' : 'none'; 
+    })
+})
+
+tiles.forEach(tile => {
+    if(chicago.classList.contains('clicked')){
+        tile.style.display = (city.textContent === 'vegas') ? 'none' : '';
+    } else if(vegas.classList.contains('clicked')) {
+        tile.style.display = (city.textContent === 'chicago') ? 'none' : '';
+    }
+})
 /*
 //array tests
 const test = document.querySelector('.test');
