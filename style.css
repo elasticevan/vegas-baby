@@ -21,13 +21,16 @@ body {
 .header {
     background-color: rgb(255, 222, 222);
     gap: 2em;
+    width:auto;
+    flex-wrap: wrap;
 }
 
 .header div{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding-right: 10em;
+    width: fit-content;
+    margin-bottom: 2em;
 }
 .vegas,
 .chicago {
@@ -150,6 +153,7 @@ option,
     gap: 10px;
     flex-wrap: wrap;
     flex: 2;
+    width: fit-content;
 }
 
 .tile {
