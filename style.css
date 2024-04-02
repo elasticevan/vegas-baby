@@ -20,12 +20,14 @@ body {
 
 .header {
     background-color: rgb(255, 222, 222);
+    gap: 2em;
 }
 
 .header div{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding-right: 10em;
 }
 .vegas,
 .chicago {
@@ -35,6 +37,7 @@ body {
 
 .chicago {
     width: 20em;
+    
 }
 
 #beta {
