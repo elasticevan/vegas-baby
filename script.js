@@ -1,5 +1,5 @@
 // JS for Vegas
-localStorage.clear();
+
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 
@@ -277,6 +277,8 @@ input.addEventListener('input', event => {
 
 const vegas = document.querySelector('.vegas');
 const chicago = document.querySelector('.chicago');
+getLocation();
+
 
 vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
@@ -292,7 +294,19 @@ chicago.addEventListener('click', () => {
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
     })
+    saveLocation();
+    
 })
+// save current location, NOT WRKNG
+
+function saveLocation(){
+    localStorage.setItem('location', chicago.classList)
+}
+
+function getLocation(){
+    localStorage.getItem('location');
+}
+
 
 /*
 //array tests
