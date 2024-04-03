@@ -15,7 +15,7 @@ grub.addEventListener('click', () => {
     mapView.style.opacity = 1;
     mapView.style.pointerEvents = "all";
 })
-
+/*
 mapView.addEventListener('click', e => {
     content.style.display = "none";
     fullMap.style.display = "block";
@@ -25,6 +25,7 @@ mapView.addEventListener('click', e => {
     grub.style.pointerEvents = "all";
     window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_ blank")
 })
+*/
 
 let stores = [
     //vegas
@@ -282,7 +283,6 @@ chicago.addEventListener('click', () => {
     vegas.classList.remove('clicked');
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
-       
     })
 })
 
