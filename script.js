@@ -73,6 +73,12 @@ let stores = [
     {city: "chicago", name: "mr. beef", image: "https://tinyurl.com/2c9ba2bh", insta: "https://www.instagram.com/mr.beefchicago/", location: "https://tinyurl.com/27ux5qaq"},
     {city: "chicago", name: "gretel", image: "https://tinyurl.com/2dbb9jub", insta: "https://www.instagram.com/gretelchicago/?hl=en", location: "https://tinyurl.com/24ssmxpt"},
     {city: "chicago", name: "ricobene's", image: "https://tinyurl.com/25qwlfzj", insta: "https://www.instagram.com/ricobenes/", location: "https://tinyurl.com/22wthuxq"},
+    {city: "chicago", name: "brasero", image: "https://tinyurl.com/23dyf37u", insta: "https://www.instagram.com/braserochicago/?hl=en", location: "https://tinyurl.com/278lro98"},
+    {city: "chicago", name: "el che", image: "https://tinyurl.com/25c39co7", insta: "https://www.instagram.com/elchechicago/", location: "https://tinyurl.com/22w2qvfs"},
+    {city: "chicago", name: "guinness brewery", image: "https://tinyurl.com/2dmf4j6p", insta: "https://tinyurl.com/23zc6v4u", location: "https://tinyurl.com/26kj7g7t"},
+    {city: "chicago", name: "smoque steak", image: "https://tinyurl.com/2bo82ekp", insta: "https://www.instagram.com/smoquesteak/?hl=en", location: "https://tinyurl.com/267h2gxo"},
+    {city: "chicago", name: "ummo", image: "https://tinyurl.com/28st67xq", insta: "https://www.instagram.com/ummochicago/?hl=en", location: "https://tinyurl.com/2cva53gr"},
+    {city: "chicago", name: "from here on foodhall", image: "https://tinyurl.com/2d7wvg23", insta: "https://www.instagram.com/fromhereonchi/?hl=en", location: "https://tinyurl.com/2dj4k4ft"},
 ]
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
