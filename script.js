@@ -277,7 +277,20 @@ input.addEventListener('input', event => {
 
 const vegas = document.querySelector('.vegas');
 const chicago = document.querySelector('.chicago');
-getLocation();
+chicago.classList = getLocation();
+
+if(chicago.classList.contains('clicked')){
+    vegas.classList.remove('clicked');
+    tiles.forEach(tile => {
+        tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
+    })
+} else if (vegas.classList.contains('clicked')){
+    chicago.classList.remove('clicked');
+    tiles.forEach(tile => {
+        tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
+       
+    })
+}
 
 
 vegas.addEventListener('click', () => {
@@ -287,6 +300,7 @@ vegas.addEventListener('click', () => {
         tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
        
     })
+    saveLocation();
 })
 chicago.addEventListener('click', () => {
     chicago.classList.add('clicked')
@@ -304,7 +318,7 @@ function saveLocation(){
 }
 
 function getLocation(){
-    localStorage.getItem('location');
+    return localStorage.getItem('location');
 }
 
 
