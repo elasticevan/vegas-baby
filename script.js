@@ -79,6 +79,9 @@ let stores = [
     {city: "chicago", name: "smoque steak", image: "https://tinyurl.com/2bo82ekp", insta: "https://www.instagram.com/smoquesteak/?hl=en", location: "https://tinyurl.com/267h2gxo"},
     {city: "chicago", name: "ummo", image: "https://tinyurl.com/28st67xq", insta: "https://www.instagram.com/ummochicago/?hl=en", location: "https://tinyurl.com/2cva53gr"},
     {city: "chicago", name: "from here on foodhall", image: "https://tinyurl.com/2d7wvg23", insta: "https://www.instagram.com/fromhereonchi/?hl=en", location: "https://tinyurl.com/2dj4k4ft"},
+    {city: "chicago", name: "chicago magic lounge", image: "https://tinyurl.com/24svfrcj", insta: "https://www.instagram.com/chicagomagiclounge/?hl=en", location: "https://tinyurl.com/2xmla3b5"},
+    {city: "chicago", name: "urbanspace food hall", image: "https://tinyurl.com/2623ltte", insta: "https://www.instagram.com/urbanspacechi/?hl=en", location: "https://tinyurl.com/2995uwul"},
+    {city: "chicago", name: "washington food hall", image: "https://tinyurl.com/28gwbuzl", insta: "https://www.instagram.com/washingtonhallchi/?hl=enn", location: "https://tinyurl.com/2995uwul"},
 ]
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
@@ -288,7 +291,6 @@ if(chicago.classList.contains('clicked')){
     chicago.classList.remove('clicked');
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
-       
     })
 }
 
