@@ -82,7 +82,12 @@ let stores = [
     {city: "chicago", name: "chicago magic lounge", image: "https://tinyurl.com/24svfrcj", insta: "https://www.instagram.com/chicagomagiclounge/?hl=en", location: "https://tinyurl.com/2xmla3b5"},
     {city: "chicago", name: "urbanspace food hall", image: "https://tinyurl.com/2623ltte", insta: "https://www.instagram.com/urbanspacechi/?hl=en", location: "https://tinyurl.com/2995uwul"},
     {city: "chicago", name: "washington food hall", image: "https://tinyurl.com/28gwbuzl", insta: "https://www.instagram.com/washingtonhallchi/?hl=enn", location: "https://tinyurl.com/2995uwul"},
+    {city: "chicago", name: "aster food hall", image: "https://tinyurl.com/22k3hrr8", insta: "https://www.instagram.com/asterhallchicago/", location: "https://tinyurl.com/23th6td7"},
+    {city: "chicago", name: "richland chinatown food hall", image: "https://tinyurl.com/2c7lzmuq", insta: "https://tinyurl.com/2d54asjp", location: "https://tinyurl.com/2dpl5pxf"},
+    {city: "chicago", name: "timeout market", image: "https://tinyurl.com/22hwwqah", insta: "https://www.instagram.com/timeoutmarketchicago/?hl=en", location: "https://tinyurl.com/23cg5jtk"},
+    {city: "chicago", name: "pookie crack cakes", image: "https://tinyurl.com/2y9hnzw4", insta: "https://www.instagram.com/pookiecrackcakes/?hl=en", location: "https://tinyurl.com/24zemxkq"},
 ]
+
 stores.forEach(store => store.favorite = 'no');
 stores.sort((a, b) => a.name.localeCompare(b.name));
 
