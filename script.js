@@ -89,6 +89,11 @@ let stores = [
     {city: "chicago", name: "color factory", image: "https://tinyurl.com/28aestno", insta: "https://www.instagram.com/colorfactoryco/?hl=en", location: "https://tinyurl.com/26knang6"},
     {city: "chicago", name: "la bou- langerie & co", image: "https://tinyurl.com/29fqab3u", insta: "https://www.instagram.com/laboulangeriechicago/?hl=en", location: "https://tinyurl.com/29z6eps4"},
     {city: "chicago", name: "ao hawiaan hide out", image: "https://tinyurl.com/26xecjqr", insta: "https://www.instagram.com/aohawaiianhideout/?hl=en", location: "https://tinyurl.com/29hqddce"},
+    {city: "chicago", name: "sushi plus", image: "https://tinyurl.com/28dvafn4", insta: "https://www.instagram.com/sushipluschinatown/?hl=en", location: "https://tinyurl.com/2ybvgryh"},
+    {city: "chicago", name: "gangnam market", image: "https://tinyurl.com/2b49yv6a", insta: "https://www.instagram.com/gangnammarket.chicago/", location: "https://tinyurl.com/24nfx8ac"},
+    {city: "chicago", name: "kurimu", image: "https://tinyurl.com/22hxcpa6", insta: "https://www.instagram.com/kurimuchicago/?hl=en", location: "https://tinyurl.com/22wvn2ew"},
+    {city: "chicago", name: "autea", image: "https://tinyurl.com/2bxkfpfz", insta: "https://www.instagram.com/autea.chicago/", location: "https://tinyurl.com/23eo3hte"},
+    {city: "chicago", name: "umamicue", image: "https://tinyurl.com/227ay4vh", insta: "https://www.instagram.com/umamicue/", location: "https://tinyurl.com/2d6uf2br"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
