@@ -80,12 +80,15 @@ let stores = [
     {city: "chicago", name: "ummo", image: "https://tinyurl.com/28st67xq", insta: "https://www.instagram.com/ummochicago/?hl=en", location: "https://tinyurl.com/2cva53gr"},
     {city: "chicago", name: "from here on foodhall", image: "https://tinyurl.com/2d7wvg23", insta: "https://www.instagram.com/fromhereonchi/?hl=en", location: "https://tinyurl.com/2dj4k4ft"},
     {city: "chicago", name: "chicago magic lounge", image: "https://tinyurl.com/24svfrcj", insta: "https://www.instagram.com/chicagomagiclounge/?hl=en", location: "https://tinyurl.com/2xmla3b5"},
-    {city: "chicago", name: "urbanspace food hall", image: "https://tinyurl.com/2623ltte", insta: "https://www.instagram.com/urbanspacechi/?hl=en", location: "https://tinyurl.com/2995uwul"},
+    {city: "chicago", name: "urban space food hall", image: "https://tinyurl.com/2623ltte", insta: "https://www.instagram.com/urbanspacechi/?hl=en", location: "https://tinyurl.com/2995uwul"},
     {city: "chicago", name: "washington food hall", image: "https://tinyurl.com/28gwbuzl", insta: "https://www.instagram.com/washingtonhallchi/?hl=enn", location: "https://tinyurl.com/2995uwul"},
     {city: "chicago", name: "aster food hall", image: "https://tinyurl.com/22k3hrr8", insta: "https://www.instagram.com/asterhallchicago/", location: "https://tinyurl.com/23th6td7"},
     {city: "chicago", name: "richland chinatown food hall", image: "https://tinyurl.com/2c7lzmuq", insta: "https://tinyurl.com/2d54asjp", location: "https://tinyurl.com/2dpl5pxf"},
     {city: "chicago", name: "timeout market", image: "https://tinyurl.com/22hwwqah", insta: "https://www.instagram.com/timeoutmarketchicago/?hl=en", location: "https://tinyurl.com/23cg5jtk"},
     {city: "chicago", name: "pookie crack cakes", image: "https://tinyurl.com/2y9hnzw4", insta: "https://www.instagram.com/pookiecrackcakes/?hl=en", location: "https://tinyurl.com/24zemxkq"},
+    {city: "chicago", name: "color factory", image: "https://tinyurl.com/28aestno", insta: "https://www.instagram.com/colorfactoryco/?hl=en", location: "https://tinyurl.com/26knang6"},
+    {city: "chicago", name: "la bou- langerie & co", image: "https://tinyurl.com/29fqab3u", insta: "https://www.instagram.com/laboulangeriechicago/?hl=en", location: "https://tinyurl.com/29z6eps4"},
+    {city: "chicago", name: "ao hawiaan hide out", image: "https://tinyurl.com/26xecjqr", insta: "https://www.instagram.com/aohawaiianhideout/?hl=en", location: "https://tinyurl.com/29hqddce"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
@@ -243,6 +246,7 @@ grid.addEventListener('click', () => {
         tiles.forEach(tile => {tile.classList.add('gridView')});
         storeNames.forEach(text => {text.style.fontSize = '1.5em'});
         tileImg.forEach(img => {img.style.width = '20em'});
+        
     }
 })
 
