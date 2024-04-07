@@ -257,7 +257,7 @@ grid.addEventListener('click', () => {
         food.style.gap = '5px';
         food.style.padding = '1em';
         tiles.forEach(tile => {tile.classList.add('gridView')});
-        storeNames.forEach(text => {text.style.fontSize = '1.5em'});
+        storeNames.forEach(text => {text.style.fontSize = '20px'});
         tileImg.forEach(img => {img.style.width = '20em'});
         
     }
