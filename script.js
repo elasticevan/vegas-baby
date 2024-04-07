@@ -7,6 +7,9 @@ const grub = document.querySelector('.grubhub');
 const mapView = document.querySelector('.mapview');
 const fullMap = document.querySelector('.fullMap');
 
+const vegas = document.querySelector('.vegas');
+const chicago = document.querySelector('.chicago');
+
 grub.addEventListener('click', () => {
     fullMap.style.display = "none";
     content.style.display = "block";
@@ -15,7 +18,7 @@ grub.addEventListener('click', () => {
     mapView.style.opacity = 1;
     mapView.style.pointerEvents = "all";
 })
-/*
+
 mapView.addEventListener('click', e => {
     content.style.display = "none";
     fullMap.style.display = "block";
@@ -23,9 +26,14 @@ mapView.addEventListener('click', e => {
     mapView.style.pointerEvents = "none";
     grub.style.opacity = 1;
     grub.style.pointerEvents = "all";
-    window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_ blank")
+    if (chicago.classList.contains('clicked')){
+        window.open("https://maps.app.goo.gl/uYUG1rq5iy7XcAuY7", "_ blank");
+        fullMap.style.content = "url(./images/parkey.jpg)";
+    } else {
+        window.open("https://maps.app.goo.gl/RUP2kzpdiWUZBG4JA", "_ blank")
+    }
 })
-*/
+
 
 let stores = [
     //vegas
@@ -81,7 +89,7 @@ let stores = [
     {city: "chicago", name: "from here on foodhall", image: "https://tinyurl.com/2d7wvg23", insta: "https://www.instagram.com/fromhereonchi/?hl=en", location: "https://tinyurl.com/2dj4k4ft"},
     {city: "chicago", name: "chicago magic lounge", image: "https://tinyurl.com/24svfrcj", insta: "https://www.instagram.com/chicagomagiclounge/?hl=en", location: "https://tinyurl.com/2xmla3b5"},
     {city: "chicago", name: "urban space food hall", image: "https://tinyurl.com/2623ltte", insta: "https://www.instagram.com/urbanspacechi/?hl=en", location: "https://tinyurl.com/2995uwul"},
-    {city: "chicago", name: "washington food hall", image: "https://tinyurl.com/28gwbuzl", insta: "https://www.instagram.com/washingtonhallchi/?hl=enn", location: "https://tinyurl.com/2995uwul"},
+    {city: "chicago", name: "washington food hall", image: "https://tinyurl.com/28gwbuzl", insta: "https://www.instagram.com/washingtonhallchi/?hl=enn", location: "https://tinyurl.com/24o9qykk"},
     {city: "chicago", name: "aster food hall", image: "https://tinyurl.com/22k3hrr8", insta: "https://www.instagram.com/asterhallchicago/", location: "https://tinyurl.com/23th6td7"},
     {city: "chicago", name: "richland chinatown food hall", image: "https://tinyurl.com/2c7lzmuq", insta: "https://tinyurl.com/2d54asjp", location: "https://tinyurl.com/2dpl5pxf"},
     {city: "chicago", name: "timeout market", image: "https://tinyurl.com/22hwwqah", insta: "https://www.instagram.com/timeoutmarketchicago/?hl=en", location: "https://tinyurl.com/23cg5jtk"},
@@ -94,6 +102,7 @@ let stores = [
     {city: "chicago", name: "kurimu", image: "https://tinyurl.com/22hxcpa6", insta: "https://www.instagram.com/kurimuchicago/?hl=en", location: "https://tinyurl.com/22wvn2ew"},
     {city: "chicago", name: "autea", image: "https://tinyurl.com/2bxkfpfz", insta: "https://www.instagram.com/autea.chicago/", location: "https://tinyurl.com/23eo3hte"},
     {city: "chicago", name: "umamicue", image: "https://tinyurl.com/227ay4vh", insta: "https://www.instagram.com/umamicue/", location: "https://tinyurl.com/2d6uf2br"},
+    {city: "chicago", name: "sando street", image: "https://tinyurl.com/243tuvcr", insta: "https://www.instagram.com/sandostreetchi/", location: "https://tinyurl.com/23dwvk7u"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
@@ -224,7 +233,6 @@ stores = storesData();
 console.log(stores)
 createTiles();
 
-
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
 
@@ -292,8 +300,7 @@ input.addEventListener('input', event => {
     });
 });
 
-const vegas = document.querySelector('.vegas');
-const chicago = document.querySelector('.chicago');
+
 chicago.classList = getLocation();
 
 if(chicago.classList.contains('clicked')){
