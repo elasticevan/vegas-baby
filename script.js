@@ -291,7 +291,7 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
-    let filterTiles = (chicago.classList.contains('chicago')) ? 
+    let filterTiles = (chicago.classList.contains('clicked')) ? 
         tiles.filter(tile => tile.textContent.includes('chicago')) : tiles.filter(tile => tile.textContent.includes('vegas'));
     filterTiles.forEach(tile => {
         const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
