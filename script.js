@@ -290,7 +290,10 @@ const input = document.querySelector('input');
 
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
-    tiles.forEach(tile => {
+    //filter only the city when searching
+    let filterTiles = (chicago.classList.contains('chicago')) ? 
+        tiles.filter(tile => tile.textContent.includes('chicago')) : tiles.filter(tile => tile.textContent.includes('vegas'));
+    filterTiles.forEach(tile => {
         const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
         if (!textContent.includes(inputValue)) {
             tile.style.display = 'none'; // Hide tile if it does not contain input value
@@ -395,3 +398,5 @@ for (let mon of pokemon) {
     mon.level = "Level 5";
 }
 
+let pokfill = pokemon.filter(mon => mon.name.includes('e'))
+console.log(pokfill)
