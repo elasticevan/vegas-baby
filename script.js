@@ -105,6 +105,7 @@ let stores = [
     {city: "chicago", name: "sando street", image: "https://tinyurl.com/243tuvcr", insta: "https://www.instagram.com/sandostreetchi/", location: "https://tinyurl.com/23dwvk7u"},
     {city: "chicago", name: "matcha en", image: "https://tinyurl.com/24djcxg8", insta: "https://www.instagram.com/matchaenchicago/", location: "https://tinyurl.com/28yy2a7b"},
     {city: "chicago", name: "te'amo", image: "https://tinyurl.com/24g3shem", insta: "https://www.instagram.com/teamobobabar/", location: "https://tinyurl.com/23ezuzps"},
+    {city: "chicago", name: "umaga bake house", image: "https://tinyurl.com/2dq89uhy", insta: "https://www.instagram.com/umagabakehouse/", location: "https://tinyurl.com/29qdlnue"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
