@@ -103,6 +103,8 @@ let stores = [
     {city: "chicago", name: "autea", image: "https://tinyurl.com/2bxkfpfz", insta: "https://www.instagram.com/autea.chicago/", location: "https://tinyurl.com/23eo3hte"},
     {city: "chicago", name: "umamicue", image: "https://tinyurl.com/227ay4vh", insta: "https://www.instagram.com/umamicue/", location: "https://tinyurl.com/2d6uf2br"},
     {city: "chicago", name: "sando street", image: "https://tinyurl.com/243tuvcr", insta: "https://www.instagram.com/sandostreetchi/", location: "https://tinyurl.com/23dwvk7u"},
+    {city: "chicago", name: "matcha en", image: "https://tinyurl.com/24djcxg8", insta: "https://www.instagram.com/matchaenchicago/", location: "https://tinyurl.com/28yy2a7b"},
+    {city: "chicago", name: "te'amo", image: "https://tinyurl.com/24g3shem", insta: "https://www.instagram.com/teamobobabar/", location: "https://tinyurl.com/23ezuzps"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
@@ -263,26 +265,23 @@ grid.addEventListener('click', () => {
     }
 })
 
-let filterTiles = (chicago.classList.contains('clicked')) ? 
-    tiles.filter(tile => tile.textContent.includes('chicago')) : 
-    tiles.filter(tile => tile.textContent.includes('vegas'));
-
+//add city filters to not cross-cities per criteria
 function sortItems(criteria) {
     tiles.forEach(tile => {tile.style.display = ''})
     if(criteria === 'Name'){
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * filterTiles.length);
+        const randomIndex = Math.floor(Math.random() * stores.length);
         // Loop through tiles
-        filterTiles.forEach((tile, index) => {
+        tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
                 // Remove all tiles except the one at the randomly chosen index
                 tile.style.display = 'none';
             }
         });
     } else if (criteria === "Faves") {
-        filterTiles.forEach(tile => {
+        tiles.forEach(tile => {
             if(!tile.classList.contains('clicked')) {
                 tile.style.display = 'none'
             }
