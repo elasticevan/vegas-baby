@@ -263,22 +263,26 @@ grid.addEventListener('click', () => {
     }
 })
 
+let filterTiles = (chicago.classList.contains('clicked')) ? 
+    tiles.filter(tile => tile.textContent.includes('chicago')) : 
+    tiles.filter(tile => tile.textContent.includes('vegas'));
+
 function sortItems(criteria) {
     tiles.forEach(tile => {tile.style.display = ''})
     if(criteria === 'Name'){
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name));
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * stores.length);
+        const randomIndex = Math.floor(Math.random() * filterTiles.length);
         // Loop through tiles
-        tiles.forEach((tile, index) => {
+        filterTiles.forEach((tile, index) => {
             if (index !== randomIndex) {
                 // Remove all tiles except the one at the randomly chosen index
                 tile.style.display = 'none';
             }
         });
     } else if (criteria === "Faves") {
-        tiles.forEach(tile => {
+        filterTiles.forEach(tile => {
             if(!tile.classList.contains('clicked')) {
                 tile.style.display = 'none'
             }
@@ -291,8 +295,6 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
-    let filterTiles = (chicago.classList.contains('clicked')) ? 
-        tiles.filter(tile => tile.textContent.includes('chicago')) : tiles.filter(tile => tile.textContent.includes('vegas'));
     filterTiles.forEach(tile => {
         const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
         if (!textContent.includes(inputValue)) {
