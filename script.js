@@ -265,13 +265,10 @@ grid.addEventListener('click', () => {
         tiles.forEach(tile => {tile.classList.add('gridView')});
         storeNames.forEach(text => {text.style.fontSize = '20px'});
         tileImg.forEach(img => {img.style.width = '20em'});
-        
     }
 })
 
-
-
-//add city filters to not cross-cities per criteriacC
+//add city filters to not cross-cities per criteria
 function sortItems(criteria) {
     tiles.forEach(tile => {tile.style.display = ''})
     if(criteria === 'Name'){
@@ -288,6 +285,7 @@ function sortItems(criteria) {
         });
     } else if (criteria === "Faves") {
         tiles.forEach(tile => {
+            //filter tiles that have colored border
             if(!tile.classList.contains('clicked')) {
                 tile.style.display = 'none'
             }
@@ -300,6 +298,7 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
+    //if 
     let filterTiles = (chicago.classList.contains('clicked')) ? 
         tiles.filter(tile => tile.textContent.includes('chicago')) :
         tiles.filter(tile => tile.textContent.includes('vegas'));
@@ -313,6 +312,10 @@ input.addEventListener('input', event => {
     });
 });
 
+
+//saves class of image so page stays on city last clicked
+function saveLocation() {localStorage.setItem('location', chicago.classList)};
+function getLocation() {return localStorage.getItem('location')};
 
 chicago.classList = getLocation();
 
@@ -328,13 +331,11 @@ if(chicago.classList.contains('clicked')){
     })
 }
 
-
 vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
     chicago.classList.remove('clicked');
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
-       
     })
     saveLocation();
 })
@@ -347,15 +348,6 @@ chicago.addEventListener('click', () => {
     saveLocation();
     
 })
-// save current location, NOT WRKNG
-
-function saveLocation(){
-    localStorage.setItem('location', chicago.classList)
-}
-
-function getLocation(){
-    return localStorage.getItem('location');
-}
 
 
 /*
@@ -393,7 +385,7 @@ function selectedElement(key) {
     display();
 
 }
-*/
+
 
 //object tests
 let pokemon = [
@@ -410,3 +402,4 @@ for (let mon of pokemon) {
 
 let pokfill = pokemon.filter(mon => mon.name.includes('e'))
 console.log(pokfill)
+*/
