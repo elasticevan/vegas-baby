@@ -10,6 +10,7 @@ const fullMap = document.querySelector('.fullMap');
 const vegas = document.querySelector('.vegas');
 const chicago = document.querySelector('.chicago');
 
+//View food tiles
 grub.addEventListener('click', () => {
     fullMap.style.display = "none";
     content.style.display = "block";
@@ -19,6 +20,7 @@ grub.addEventListener('click', () => {
     mapView.style.pointerEvents = "all";
 })
 
+//Google map viewer of restos in city
 mapView.addEventListener('click', e => {
     content.style.display = "none";
     fullMap.style.display = "block";
@@ -34,7 +36,7 @@ mapView.addEventListener('click', e => {
     }
 })
 
-
+//List of restos in city
 let stores = [
     //vegas
     {city: "vegas", name: "dunkin", image: "./images/sadfleck (1).jpg", insta: "https://tinyurl.com/2yynshzg", location: "https://tinyurl.com/yk7u5eo5"},
@@ -223,7 +225,6 @@ function createTiles() {
     }
     // everytime heart is clicked, adds 'clicked' to classList of tile element. save tile
     // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
-    
 }
 
 let storeObj= localStorage.getItem('fave');
@@ -239,6 +240,7 @@ stores = storesData();
 console.log(stores)
 createTiles();
 
+// Grid feat: make tiles smaller when on grid view
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
 
@@ -268,7 +270,8 @@ grid.addEventListener('click', () => {
     }
 })
 
-//add city filters to not cross-cities per criteria
+// Sort feat: Name, Random, Favorited (colored borders)
+// add city filters to not cross-cities per criteria
 function sortItems(criteria) {
     tiles.forEach(tile => {tile.style.display = ''})
     if(criteria === 'Name'){
@@ -293,6 +296,7 @@ function sortItems(criteria) {
     }
 }
 
+// Search feat
 const input = document.querySelector('input');
 
 input.addEventListener('input', event => {
@@ -313,7 +317,7 @@ input.addEventListener('input', event => {
 });
 
 
-//saves class of image so page stays on city last clicked
+// saves class of image so page stays on city last clicked
 function saveLocation() {localStorage.setItem('location', chicago.classList)};
 function getLocation() {return localStorage.getItem('location')};
 
@@ -346,7 +350,6 @@ chicago.addEventListener('click', () => {
         tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
     })
     saveLocation();
-    
 })
 
 
