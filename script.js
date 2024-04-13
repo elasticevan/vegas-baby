@@ -149,8 +149,9 @@ dialog.appendChild(socials);
 
 food.appendChild(dialog);
 
+// objects use for...in vs arrays who use for...of
 let tile;
-//objects use for...in vs arrays who use for...of
+// create tiles using store objects
 function createTiles() {
     for (let store of stores) {
         // Create tile
@@ -192,7 +193,7 @@ function createTiles() {
                 store.favorite = 'yes';
             }
         }
-        
+        // saves tiles with colored borders
         function saveData(){
             localStorage.setItem('fave', JSON.stringify(stores));
         }
