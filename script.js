@@ -111,6 +111,7 @@ let stores = [
     {city: "chicago", name: "churro factory", image:  "https://tinyurl.com/25l9qgfc", insta: "https://www.instagram.com/churrofactory_xurro/?hl=en", location: "https://tinyurl.com/24x8rnhp"},
     {city: "chicago", name: "girl & goat", image:  "https://tinyurl.com/2ap5gzjb", insta: "https://www.instagram.com/girl.and.the.goat/?hl=en", location: "https://tinyurl.com/297oknh4"},
     {city: "chicago", name: "cleo's southern kitchen", image:  "https://tinyurl.com/2btj7yu7", insta: "https://www.instagram.com/cleos_southerncuisine/?hl=en", location: "https://tinyurl.com/27zhp2t6"},
+    {city: "chicago", name: "hero coffee", image:  "https://tinyurl.com/26yywldu", insta: "https://www.instagram.com/herocoffee/?hl=en", location: "https://tinyurl.com/2bxcnclp"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
