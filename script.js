@@ -322,8 +322,6 @@ input.addEventListener('input', event => {
 
 
 // saves class of image so page stays on city last clicked
-function saveLocation() {localStorage.setItem('location', chicago.classList)};
-function getLocation() {return localStorage.getItem('location')};
 
 chicago.classList = getLocation();
 
@@ -332,8 +330,7 @@ if(chicago.classList.contains('clicked')){
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
     })
-} else if (vegas.classList.contains('clicked')){
-    chicago.classList.remove('clicked');
+} else {
     tiles.forEach(tile => {
         tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
     })
@@ -355,6 +352,10 @@ chicago.addEventListener('click', () => {
     })
     saveLocation();
 })
+
+function saveLocation() {localStorage.setItem('location', chicago.classList)};
+function getLocation() {return localStorage.getItem('location')};
+
 
 
 /*
