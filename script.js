@@ -117,7 +117,9 @@ let stores = [
     {city: "chicago", name: "aroy thai", image:  "https://tinyurl.com/2dkhlmbx", insta: "https://www.instagram.com/aroythai_chicago/", location: "https://tinyurl.com/28tck9dd"},
 ]
 
+// add key : value for favorite/liking stores
 stores.forEach(store => store.favorite = 'no');
+// sort stores in alph order
 stores.sort((a, b) => a.name.localeCompare(b.name));
 
 // Create modal outside of loop
