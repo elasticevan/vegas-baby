@@ -114,6 +114,7 @@ let stores = [
     {city: "chicago", name: "hero coffee", image:  "https://tinyurl.com/26yywldu", insta: "https://www.instagram.com/herocoffee/?hl=en", location: "https://tinyurl.com/2bxcnclp"},
     {city: "chicago", name: "dear donuts", image:  "https://tinyurl.com/28gzyelq", insta: "https://www.instagram.com/deardonutscafe/", location: "https://tinyurl.com/2aljxpp4"},
     {city: "chicago", name: "dear donuts", image:  "https://tinyurl.com/22mp6z8n", insta: "https://www.instagram.com/luellassouthernkitchen", location: "https://tinyurl.com/2ccsj63o"},
+    {city: "chicago", name: "aroy thai", image:  "https://tinyurl.com/2dkhlmbx", insta: "https://www.instagram.com/aroythai_chicago/", location: "https://tinyurl.com/28tck9dd"},
 ]
 
 stores.forEach(store => store.favorite = 'no');
@@ -306,7 +307,6 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
-    //if 
     let filterTiles = (chicago.classList.contains('clicked')) ? 
         tiles.filter(tile => tile.textContent.includes('chicago')) :
         tiles.filter(tile => tile.textContent.includes('vegas'));
@@ -321,10 +321,11 @@ input.addEventListener('input', event => {
 });
 
 
-// saves class of image so page stays on city last clicked
+// saves class of city logo so page stays on city last clicked
 
 chicago.classList = getLocation();
 
+// only show tiles located in that city = textContent.includes(city)
 if(chicago.classList.contains('clicked')){
     vegas.classList.remove('clicked');
     tiles.forEach(tile => {
@@ -336,6 +337,7 @@ if(chicago.classList.contains('clicked')){
     })
 }
 
+// add 'clicked' on city logo when clicked 
 vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
     chicago.classList.remove('clicked');
@@ -353,6 +355,7 @@ chicago.addEventListener('click', () => {
     saveLocation();
 })
 
+// save/load funct
 function saveLocation() {localStorage.setItem('location', chicago.classList)};
 function getLocation() {return localStorage.getItem('location')};
 
