@@ -244,7 +244,6 @@ function storesData() {
 }
 
 stores = storesData();
-console.log(stores)
 createTiles();
 
 // Grid feat: make tiles smaller when on grid view
@@ -325,7 +324,7 @@ input.addEventListener('input', event => {
 
 // saves class of city logo so page stays on city last clicked
 
-chicago.classList = getLocation();
+chicago.classList = getLocation();          //when page refreshes getLocation() = null. when clicked, chicago.classList = null clicked lolololol idiot
 
 // only show tiles located in that city = textContent.includes(city)
 if(chicago.classList.contains('clicked')){
