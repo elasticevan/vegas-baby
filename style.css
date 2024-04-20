@@ -149,10 +149,10 @@ option,
 
 .food {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 2em;
-    gap: 10px;
+    gap: 2em;
     flex-wrap: wrap;
     flex: 2;
     width: fit-content;
