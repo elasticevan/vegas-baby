@@ -323,10 +323,16 @@ input.addEventListener('input', event => {
 
 
 // saves class of city logo so page stays on city last clicked
+function chiClass() {
+    if (getLocation() === null) {
+        chicago.classList = 'chicago';
+    } else {
+    chicago.classList = getLocation();
+    }
+    return chicago.classList
+}
+chiClass();
 
-if(getLocation() === null) {
-    chicago.classList = 'chicago';
-}      //when page refreshes getLocation() = null. when clicked, chicago.classList = null clicked lolololol idiot
 
 // only show tiles located in that city = textContent.includes(city)
 if(chicago.classList.contains('clicked')){
