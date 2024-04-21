@@ -33,8 +33,7 @@ body {
     margin-bottom: 2em;
 }
 .vegas,
-.chicago,
-.null /* gotta fix this, class should be chicago*/ 
+.chicago
     {
     width: 25em;
     cursor: pointer;
