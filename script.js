@@ -368,7 +368,7 @@ chicago.addEventListener('click', () => {
 function saveLocation() {localStorage.setItem('location', chicago.classList)};
 function getLocation() {return localStorage.getItem('location')};
 
-
+delete me cuz i aint real
 
 /*
 //array tests
