@@ -275,14 +275,19 @@ grid.addEventListener('click', () => {
         tileImg.forEach(img => {img.style.width = '20em'});
     }
 })
-
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
+
 function sortItems(criteria) {
-    tiles.forEach(tile => {tile.style.display = ''})
-    if(criteria === 'Name'){
+    // not working but getting somewhere
+    let cityStore = (chicago.classList.contains('clicked')) ? 
+        stores.filter(store => store.city.includes('chicago')) :
+        stores.filter(store => store.city.includes('vegas')) ;
+    
+    tiles.forEach(tile => {tile.style.display = ''});
+    if (criteria === 'Name'){
         // Sort the tiles based on their name
-        stores.sort((a, b) => a.name.localeCompare(b.name));
+        cityStore.sort((a, b) => a.name.localeCompare(b.name));
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
         // Loop through tiles
