@@ -283,13 +283,13 @@ function sortItems(criteria) {
     let cityStore = (chicago.classList.contains('clicked')) ? 
         stores.filter(store => store.city.includes('chicago')) :
         stores.filter(store => store.city.includes('vegas')) ;
-    
+    // cityStore works, but not working with sort or random so weird
     tiles.forEach(tile => {tile.style.display = ''});
     if (criteria === 'Name'){
         // Sort the tiles based on their name
         cityStore.sort((a, b) => a.name.localeCompare(b.name));
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * stores.length);
+        const randomIndex = Math.floor(Math.random() * cityStore.length);
         // Loop through tiles
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
@@ -306,6 +306,7 @@ function sortItems(criteria) {
         })
     }
 }
+
 
 // Search feat
 const input = document.querySelector('input');
