@@ -113,7 +113,7 @@ let stores = [
     {city: "chicago", name: "cleo's southern kitchen", image:  "https://tinyurl.com/2btj7yu7", insta: "https://www.instagram.com/cleos_southerncuisine/?hl=en", location: "https://tinyurl.com/27zhp2t6"},
     {city: "chicago", name: "hero coffee", image:  "https://tinyurl.com/26yywldu", insta: "https://www.instagram.com/herocoffee/?hl=en", location: "https://tinyurl.com/2bxcnclp"},
     {city: "chicago", name: "dear donuts", image:  "https://tinyurl.com/28gzyelq", insta: "https://www.instagram.com/deardonutscafe/", location: "https://tinyurl.com/2aljxpp4"},
-    {city: "chicago", name: "dear donuts", image:  "https://tinyurl.com/22mp6z8n", insta: "https://www.instagram.com/luellassouthernkitchen", location: "https://tinyurl.com/2ccsj63o"},
+    {city: "chicago", name: "luella southern kitchen", image:  "https://tinyurl.com/22mp6z8n", insta: "https://www.instagram.com/luellassouthernkitchen", location: "https://tinyurl.com/2ccsj63o"},
     {city: "chicago", name: "aroy thai", image:  "https://tinyurl.com/2dkhlmbx", insta: "https://www.instagram.com/aroythai_chicago/", location: "https://tinyurl.com/28tck9dd"},
 ]
 
@@ -277,21 +277,19 @@ grid.addEventListener('click', () => {
 })
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
-let cityStore = (chicago.classList.contains('clicked')) ? 
-stores.filter(store => store.city.includes('vegas')) :
-stores.filter(store => store.city.includes('chicago')) ;
-
-for (let store of cityStore) {
-    console.log(store.name)
-}
 
 function sortItems(criteria) {
     // not working but getting somewhere
+    let cityStore = (chicago.classList.contains('clicked')) ? 
+        stores.filter(store => store.city.includes('chicago')) :
+        stores.filter(store => store.city.includes('vegas')) ;
+
     // cityStore works, but not working with sort or random so weird
     tiles.forEach(tile => {tile.style.display = ''});
     if (criteria === 'Name'){
         // Sort the tiles based on their name
-        cityStore.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(typeof cityStore)
+        console.log(cityStore.sort((a, b) => a.name.localeCompare(b.name))); //sort func is working but not showing on tiles
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * cityStore.length);
         // Loop through tiles
@@ -310,7 +308,6 @@ function sortItems(criteria) {
         })
     }
 }
-
 
 // Search feat
 const input = document.querySelector('input');
