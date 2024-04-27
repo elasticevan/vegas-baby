@@ -277,12 +277,16 @@ grid.addEventListener('click', () => {
 })
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
+let cityStore = (chicago.classList.contains('clicked')) ? 
+stores.filter(store => store.city.includes('vegas')) :
+stores.filter(store => store.city.includes('chicago')) ;
+
+for (let store of cityStore) {
+    console.log(store.name)
+}
 
 function sortItems(criteria) {
     // not working but getting somewhere
-    let cityStore = (chicago.classList.contains('clicked')) ? 
-        stores.filter(store => store.city.includes('chicago')) :
-        stores.filter(store => store.city.includes('vegas')) ;
     // cityStore works, but not working with sort or random so weird
     tiles.forEach(tile => {tile.style.display = ''});
     if (criteria === 'Name'){
