@@ -288,8 +288,7 @@ function sortItems(criteria) {
     tiles.forEach(tile => {tile.style.display = ''});
     if (criteria === 'Name'){
         // Sort the tiles based on their name
-        console.log(typeof cityStore)
-        console.log(cityStore.sort((a, b) => a.name.localeCompare(b.name))); //sort func is working but not showing on tiles
+        cityStore.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * cityStore.length);
         // Loop through tiles
