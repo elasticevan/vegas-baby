@@ -280,17 +280,21 @@ grid.addEventListener('click', () => {
 
 function sortItems(criteria) {
     // not working but getting somewhere
-    let cityStore = (chicago.classList.contains('clicked')) ? 
-        stores.filter(store => store.city.includes('chicago')) :
-        stores.filter(store => store.city.includes('vegas')) ;
-
-    // cityStore works, but not working with sort or random so weird
     tiles.forEach(tile => {tile.style.display = ''});
+
+    
+    // cityStore works, but not working with sort or random so weird
     if (criteria === 'Name'){
+        if (chicago.classList.contains('clicked')) { 
+            stores.filter(store => store.city.includes('chicago'));
+        } else {
+            stores.filter(store => store.city.includes('vegas')) ;
+        };
+        console.log(stores)
         // Sort the tiles based on their name
-        cityStore.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
+        stores.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * cityStore.length);
+        const randomIndex = Math.floor(Math.random() * stores.length);
         // Loop through tiles
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
