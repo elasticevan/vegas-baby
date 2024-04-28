@@ -285,10 +285,12 @@ function sortItems(criteria) {
         stores.filter(store => store.city.includes('vegas')) ;
 
     stores = cityStore;
+
     // cityStore works, but not working with sort or random so weird
-    tiles.forEach(tile => {tile.style.display = ''});
     if (criteria === 'Name'){
         // Sort the tiles based on their name
+        const tiles = Array.from(document.querySelectorAll('.tile'));
+        tiles.forEach(tile => {tile.style.display = ''});
         stores.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
         createTiles();
     } else if (criteria === 'Random'){
