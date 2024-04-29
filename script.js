@@ -289,7 +289,7 @@ function sortItems(criteria) {
         // Sort the tiles based on their name
         stores.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
         tiles.innerHTML = '';
-
+        createTiles();                                      //why do we need to sort by name when it's sorted by default??????
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
         // Loop through tiles
