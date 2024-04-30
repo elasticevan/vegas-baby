@@ -280,16 +280,10 @@ grid.addEventListener('click', () => {
 
 function sortItems(criteria) {
     // not working but getting somewhere
-    let cityStore = (chicago.classList.contains('clicked')) ? 
-        stores.filter(store => store.city.includes('chicago')) :
-        stores.filter(store => store.city.includes('vegas')) ;
-    stores = cityStore;
+    tiles.forEach(tile => tile.style.display = '');
     // cityStore works, but not working with sort or random so weird
     if (criteria === 'Name'){
-        // Sort the tiles based on their name
-        stores.sort((a, b) => a.name.localeCompare(b.name)); //sort func is working but not showing on tiles
-        tiles.innerHTML = '';
-        createTiles();                                      //why do we need to sort by name when it's sorted by default??????
+        clickedLogo();
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * stores.length);
         // Loop through tiles
@@ -342,17 +336,19 @@ chiClass();
 
 
 // only show tiles located in that city = textContent.includes(city)
-if(chicago.classList.contains('clicked')){
-    vegas.classList.remove('clicked');
-    tiles.forEach(tile => {
-        tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
-    })
-} else {
-    tiles.forEach(tile => {
-        tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
-    })
+function clickedLogo() {
+    if(chicago.classList.contains('clicked')){
+        vegas.classList.remove('clicked');
+        tiles.forEach(tile => {
+            tile.style.display = (tile.textContent.includes('chicago')) ? '' : 'none';
+        })
+    } else {
+        tiles.forEach(tile => {
+            tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
+        })
+    }
 }
-
+clickedLogo();
 // add 'clicked' on city logo when clicked 
 vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
