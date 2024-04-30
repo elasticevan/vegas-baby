@@ -282,7 +282,7 @@ function sortItems(criteria) {
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * stores.length);
+        const randomIndex = Math.floor(Math.random() * tiles.length);
         // Loop through tiles
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
