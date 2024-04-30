@@ -279,9 +279,6 @@ grid.addEventListener('click', () => {
 // add city filters to not cross-cities per criteria
 
 function sortItems(criteria) {
-    // not working but getting somewhere
-    tiles.forEach(tile => tile.style.display = '');
-    // cityStore works, but not working with sort or random so weird
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
