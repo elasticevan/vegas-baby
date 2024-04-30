@@ -282,7 +282,11 @@ function sortItems(criteria) {
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
-        const randomIndex = Math.floor(Math.random() * tiles.length);
+        let filterTiles = (chicago.classList.contains('clicked')) ? 
+            tiles.filter(tile => tile.textContent.includes('chicago')) :
+            tiles.filter(tile => tile.textContent.includes('vegas'));
+        const randomIndex = Math.floor(Math.random() * filterTiles.length);
+        console.log(randomIndex)
         // Loop through tiles
         tiles.forEach((tile, index) => {
             if (index !== randomIndex) {
