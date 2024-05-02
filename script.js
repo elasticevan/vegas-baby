@@ -217,8 +217,6 @@ function createTiles() {
             insta.addEventListener('click', instagram);
             // Event listener for toggling like feature
             heart.addEventListener('click', likeHeart);
-
-            
             // Event listener for closing dialog
             close.addEventListener('click', () => {
                 insta.removeEventListener('click', instagram);
@@ -274,13 +272,20 @@ grid.addEventListener('click', () => {
         tileImg.forEach(img => {img.style.width = '20em'});
     }
 })
+
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
-
-function sortItems(criteria) {
+function filter() {
     let filterTiles = (chicago.classList.contains('clicked')) ? 
         tiles.filter(tile => tile.textContent.includes('chicago')) :
         tiles.filter(tile => tile.textContent.includes('vegas'));
+        console.log(filterTiles);
+    return filterTiles;
+}
+
+function sortItems(criteria) {
+    filter();
+
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
@@ -308,9 +313,7 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
-    let filterTiles = (chicago.classList.contains('clicked')) ? 
-        tiles.filter(tile => tile.textContent.includes('chicago')) :
-        tiles.filter(tile => tile.textContent.includes('vegas'));
+    filter();
     filterTiles.forEach(tile => {
         const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
         if (!textContent.includes(inputValue)) {
