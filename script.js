@@ -279,23 +279,23 @@ grid.addEventListener('click', () => {
 // add city filters to not cross-cities per criteria
 
 function sortItems(criteria) {
+    let filterTiles = (chicago.classList.contains('clicked')) ? 
+        tiles.filter(tile => tile.textContent.includes('chicago')) :
+        tiles.filter(tile => tile.textContent.includes('vegas'));
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
-        let filterTiles = (chicago.classList.contains('clicked')) ? 
-            tiles.filter(tile => tile.textContent.includes('chicago')) :
-            tiles.filter(tile => tile.textContent.includes('vegas'));
         const randomIndex = Math.floor(Math.random() * filterTiles.length);
         console.log(randomIndex)
         // Loop through tiles
-        tiles.forEach((tile, index) => {
+        filterTiles.forEach((tile, index) => {
             if (index !== randomIndex) {
                 // Remove all tiles except the one at the randomly chosen index
                 tile.style.display = 'none';
             }
         });
     } else if (criteria === "Faves") {
-        tiles.forEach(tile => {
+        filterTiles.forEach(tile => {
             //filter tiles that have colored border
             if(!tile.classList.contains('clicked')) {
                 tile.style.display = 'none'
