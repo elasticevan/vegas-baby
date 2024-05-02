@@ -156,7 +156,6 @@ dialog.appendChild(socials);
 food.appendChild(dialog);
 
 // objects use for...in vs arrays who use for...of
-let tile;
 // create tiles using store objects
 function createTiles() {
     for (let store of stores) {
@@ -322,7 +321,6 @@ input.addEventListener('input', event => {
     });
 });
 
-
 // saves class of city logo so page stays on city last clicked
 function chiClass() {
     if (getLocation() === null) {
@@ -370,8 +368,6 @@ chicago.addEventListener('click', () => {
 // save/load funct
 function saveLocation() {localStorage.setItem('location', chicago.classList)};
 function getLocation() {return localStorage.getItem('location')};
-
-
 
 /*
 //array tests
