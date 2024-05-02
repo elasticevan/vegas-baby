@@ -286,7 +286,6 @@ function sortItems(criteria) {
         clickedLogo();
     } else if (criteria === 'Random'){
         const randomIndex = Math.floor(Math.random() * filterTiles.length);
-        console.log(randomIndex)
         // Loop through tiles
         filterTiles.forEach((tile, index) => {
             if (index !== randomIndex) {
