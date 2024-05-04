@@ -2,11 +2,9 @@
 
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
-
 const grub = document.querySelector('.grubhub');
 const mapView = document.querySelector('.mapview');
 const fullMap = document.querySelector('.fullMap');
-
 const vegas = document.querySelector('.vegas');
 const chicago = document.querySelector('.chicago');
 
@@ -145,11 +143,9 @@ close.classList.add('close');
 heart.innerHTML = heartEmpty;
 insta.innerHTML = '<img src="./images/insta.png">';
 close.innerHTML = '<img src="./images/close_icon.png">';
-
 socials.appendChild(heart);
 socials.appendChild(insta);
 socials.appendChild(close);
-
 dialog.appendChild(maps);
 dialog.appendChild(socials);
 
@@ -163,8 +159,7 @@ function createTiles() {
         let tile = document.createElement('div');
         tile.classList.add('tile');
         if(store.favorite === 'yes') {
-            tile.classList.add('clicked');
-        }
+            tile.classList.add('clicked')};
         tile.textContent = store.city;
 
         // Create image element
@@ -183,8 +178,7 @@ function createTiles() {
 
         // specify which map to tile
         function instagram(){
-            window.open(store.insta, '_blank')
-        }
+            window.open(store.insta, '_blank')}
 
         // check if tile has been liked
         function likeHeart(){
@@ -200,8 +194,7 @@ function createTiles() {
         }
         // saves tiles with colored borders
         function saveData(){
-            localStorage.setItem('fave', JSON.stringify(stores));
-        }
+            localStorage.setItem('fave', JSON.stringify(stores))}
         
         // Event listener for opening dialog on tile click
         tile.addEventListener('click', () => {
@@ -218,6 +211,7 @@ function createTiles() {
             // Event listener for toggling like feature
             heart.addEventListener('click', likeHeart);
             // Event listener for closing dialog
+            // everytime heart is clicked, adds 'clicked' to classList of tile element. save tile
             close.addEventListener('click', () => {
                 insta.removeEventListener('click', instagram);
                 heart.removeEventListener('click', likeHeart);
@@ -227,9 +221,8 @@ function createTiles() {
             });
         })
     }
-    // everytime heart is clicked, adds 'clicked' to classList of tile element. save tile
     // everytime page refreshes, run through all the tiles and add 'clicked' to tiles previously with 'clicked' in their classList 
-}
+};
 
 let storeObj= localStorage.getItem('fave');
         
@@ -239,14 +232,12 @@ function storesData() {
     let obj = (newObj === null) ? stores : newObj;
     return obj;
 }
-
 stores = storesData();
 createTiles();
 
 // Grid feat: make tiles smaller when on grid view
 // Get all the tiles
 const tiles = Array.from(document.querySelectorAll('.tile'));
-
 const storeNames = document.querySelectorAll('.text');
 const tileImg = document.querySelectorAll('.tile img');
 const grid = document.querySelector('.grid');
@@ -271,7 +262,7 @@ grid.addEventListener('click', () => {
         storeNames.forEach(text => {text.style.fontSize = '20px'});
         tileImg.forEach(img => {img.style.width = '20em'});
     }
-})
+});
 
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
@@ -298,7 +289,7 @@ function sortItems(criteria) {
             }
         })
     }
-}
+};
 
 // Search feat
 const input = document.querySelector('input');
@@ -326,8 +317,8 @@ function chiClass() {
     } else {
         chicago.classList = getLocation();
     }
-    return chicago.classList
-}
+    return chicago.classList;
+};
 chiClass();
 
 // only show tiles located in that city = textContent.includes(city)
@@ -342,9 +333,9 @@ function clickedLogo() {
             tile.style.display = (tile.textContent.includes('vegas')) ? '' : 'none';
         })
     }
-}
-
+};
 clickedLogo();
+
 // add 'clicked' on city logo when clicked 
 vegas.addEventListener('click', () => {
     vegas.classList.add('clicked');
