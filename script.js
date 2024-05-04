@@ -275,17 +275,10 @@ grid.addEventListener('click', () => {
 
 // Sort feat: Name, Random, Favorited (colored borders)
 // add city filters to not cross-cities per criteria
-function filter() {
+function sortItems(criteria) {
     let filterTiles = (chicago.classList.contains('clicked')) ? 
         tiles.filter(tile => tile.textContent.includes('chicago')) :
         tiles.filter(tile => tile.textContent.includes('vegas'));
-        console.log(filterTiles);
-    return filterTiles;
-}
-
-function sortItems(criteria) {
-    filter();
-
     if (criteria === 'Name'){
         clickedLogo();
     } else if (criteria === 'Random'){
@@ -313,7 +306,9 @@ const input = document.querySelector('input');
 input.addEventListener('input', event => {
     const inputValue = event.target.value.toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
     //filter only the city when searching
-    filter();
+    let filterTiles = (chicago.classList.contains('clicked')) ? 
+        tiles.filter(tile => tile.textContent.includes('chicago')) :
+        tiles.filter(tile => tile.textContent.includes('vegas'));
     filterTiles.forEach(tile => {
         const textContent = tile.querySelector('.text').textContent.toLowerCase(); // Get text content of tile
         if (!textContent.includes(inputValue)) {
@@ -329,12 +324,11 @@ function chiClass() {
     if (getLocation() === null) {
         chicago.classList = 'chicago';
     } else {
-    chicago.classList = getLocation();
+        chicago.classList = getLocation();
     }
     return chicago.classList
 }
 chiClass();
-
 
 // only show tiles located in that city = textContent.includes(city)
 function clickedLogo() {
@@ -349,6 +343,7 @@ function clickedLogo() {
         })
     }
 }
+
 clickedLogo();
 // add 'clicked' on city logo when clicked 
 vegas.addEventListener('click', () => {
@@ -371,57 +366,3 @@ chicago.addEventListener('click', () => {
 // save/load funct
 function saveLocation() {localStorage.setItem('location', chicago.classList)};
 function getLocation() {return localStorage.getItem('location')};
-
-/*
-//array tests
-const test = document.querySelector('.test');
-const array = ['debut', 'fearless', 'speak now', 'red', '1989', 'reputation', 'lover'];
-
-function display(){
-    for(let key of array) {
-        let cube = document.createElement('div');
-        cube.classList = 'album';
-        cube.textContent = key;
-        test.appendChild(cube);
-        
-        //The bind() method is used to bind the key value to the selectedElement function. 
-        //This ensures that the key value is passed as an argument to the selectedElement function when the event is triggered.
-        cube.addEventListener('click', selectedElement.bind(null, key));
-    }
-}
-
-display();
-
-function selectedElement(key) {
-    //get index of selected element
-    let choice = array.indexOf(key);
-    console.log(choice);
-    //remove selected element from array
-    let selected = array.splice(choice, 1);
-    console.log(selected);
-    //add selected element to front of array, shift rest of array +1
-    array.unshift(`${selected}`);
-    console.log(array);
-    //clear test content to replace with updated array
-    test.innerHTML = '';
-    display();
-
-}
-
-
-//object tests
-let pokemon = [
-    {name: 'squirtle', type: 'water'},
-    {name: 'bulbasaur', type: 'leaf'},
-    {name: 'pikachu', type: 'electric'},
-    {name: 'charmander', type: 'fire'}
-]
-
-
-for (let mon of pokemon) {
-    mon.level = "Level 5";
-}
-
-let pokfill = pokemon.filter(mon => mon.name.includes('e'))
-console.log(pokfill)
-*/
