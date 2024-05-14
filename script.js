@@ -1,5 +1,15 @@
 // JS for Vegas
-import {getWeather} from "./weather"
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+  // You can also use '*' to allow requests from any origin, but it's less secure.
+  // res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+import {getWeather} from "http://localhost:8080/weather.js"
 
 getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone).then(
     res => {
