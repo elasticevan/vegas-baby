@@ -1,21 +1,4 @@
 // JS for Vegas
-//const express = require('express');
-//const app = express();
-//
-//app.use((req, res, next) => {
-//  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/');
-//  // You can also use '*' to allow requests from any origin, but it's less secure.
-//  // res.setHeader('Access-Control-Allow-Origin', '*');
-//  next();
-//});
-//
-//import {getWeather} from "./weather.js"
-//
-//getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone).then(
-//    res => {
-//        console.log(res.data)
-//    }
-//)
 const content = document.querySelector('.content');
 const food = document.querySelector('.food');
 const grub = document.querySelector('.grubhub');
@@ -130,7 +113,7 @@ let stores = [
     {city: "chicago", name: "luella southern kitchen", image:  "https://tinyurl.com/22mp6z8n", insta: "https://www.instagram.com/luellassouthernkitchen", location: "https://tinyurl.com/2ccsj63o"},
     {city: "chicago", name: "aroy thai", image:  "https://tinyurl.com/2dkhlmbx", insta: "https://www.instagram.com/aroythai_chicago/", location: "https://tinyurl.com/28tck9dd"},
 ]
-
+console.log(typeof stores)
 // add key : value for favorite/liking stores
 stores.forEach(store => store.favorite = 'no');
 // sort stores in alph order
